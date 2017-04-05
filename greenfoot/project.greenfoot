@@ -1,11 +1,11 @@
 #Greenfoot properties
-#Tue Apr 04 17:14:23 PDT 2017
+#Tue Apr 04 17:25:22 PDT 2017
 target1.type=ClassTarget
 project.charset=UTF-8
 mainWindow.height=1048
+class.Screen.image=black-screen.png
 editor.fx.0.width=0
 readme.y=10
-class.Screen.image=black-screen.png
 readme.x=10
 version=3.0.0
 class.Button.superclass=greenfoot.Actor

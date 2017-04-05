@@ -13,7 +13,7 @@ public class Screen extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Screen(){
-         GreenfootImage image = getImage() ;
+        GreenfootImage image = getImage() ;
         image.scale( 600, 450 ) ;
     }
     public void act() 
