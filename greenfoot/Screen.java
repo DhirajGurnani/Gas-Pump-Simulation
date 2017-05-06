@@ -19,7 +19,10 @@ public class Screen extends Actor
     private String octane;
     private boolean mouseDown = false;
     private boolean wash;    
-    
+    public Screen(){
+         GreenfootImage image = getImage() ;
+        image.scale( 600, 470 ) ;
+    }
     public void welcomeMessage() {
         String str = "Welcome" + "\n" +"Please insert card";
         setMessage(str);       
@@ -52,7 +55,7 @@ public class Screen extends Actor
 		} else if(Greenfoot.mousePressed(nozzle) && nozzle.isStarted()){
 			
 			nozzle.stopNozzle();
-			showReceipt();
+			displayReceipt();
 		}
 	}
 	public void displayReceipt()
