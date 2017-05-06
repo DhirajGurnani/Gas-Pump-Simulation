@@ -8,6 +8,7 @@ public class Nozzle extends Actor
     long nozzleStop;
     boolean nozzlePressed;
     boolean nozzleActive;
+    private Screen screen;
     
      public void act() 
     {    
@@ -24,6 +25,8 @@ public class Nozzle extends Actor
     public void startNozzle()
     {
 		nozzlePressed = true;
+		screen = getWorld().getObjects(Screen.class).get(0);
+		screen.setMessage("Pumping fuel. \n Click the nozzle to stop.");
         this.nozzleStart =  System.nanoTime();//Gives time in nano secs
     }
     public void stopNozzle()

@@ -1,41 +1,29 @@
 import greenfoot.*; 
-/**
- * Write a description of class message here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
  
 public class Message extends Actor
-{
-    private GreenfootImage image;
-    private int msgX;   //Add coordinates to the variables 
-    private int msgY;   
-
-    public Message()
-    {
+{   
+    public Message(){
+        displayText("");
     }
     
-    public Message(int msgX, int msgY){
+    public Message(String msg){
+        displayText(msg);
     }
     
     public void setText(String msg)
     {
-        image.clear();
-        image.setColor(greenfoot.Color.WHITE);
-        image.fill();
-        
-        image.setColor(greenfoot.Color.BLACK);
-        image.drawString(msg, msgX, msgY);
+        displayText(msg);
     }
     
-    public void act()
-    {
-        if(Greenfoot.mousePressed(this)) 
-        {
-            World world = getWorld();
-            world.removeObject(this);
-        }
-    }
+    public void displayText(String msg){
+    GreenfootImage img = new GreenfootImage(200,190);//adjust coordinates
+    img.setColor(greenfoot.Color.WHITE);
+    img.fill();
+    img.setColor(greenfoot.Color.YELLOW);
+    img.drawString(msg,10,15);//adjust coordinates
+    setImage(img); 
+    
+}
+    
     
 }
