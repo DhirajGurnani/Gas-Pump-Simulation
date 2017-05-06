@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=FuelType
+comment1.params=
+comment1.target=FuelType()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=java.lang.String\ getFuelType()
+comment4.params=x\ y
+comment4.target=java.lang.String\ chooseFuelType(int,\ int)
+numComments=5
