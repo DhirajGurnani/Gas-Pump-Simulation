@@ -1,34 +1,63 @@
 #Greenfoot properties
+<<<<<<< Updated upstream
 #Sat May 06 12:16:12 PDT 2017
 target4.type=ClassTarget
+=======
+#Sat May 06 12:44:35 PDT 2017
+target4.type=ClassTarget
+target8.showInterface=false
+>>>>>>> Stashed changes
 dependency3.from=Screen
 target3.height=50
 target5.height=50
 readme.y=10
 dependency3.type=UsesDependency
 readme.x=10
+<<<<<<< Updated upstream
 target4.name=Price
 target4.typeParameters=
 readme.width=47
 editor.fx.0.width=818
+=======
+target4.name=Nozzle
+target8.width=80
+target4.typeParameters=
+readme.width=47
+editor.fx.0.width=816
+>>>>>>> Stashed changes
 target1.height=50
 target5.type=ClassTarget
 target3.typeParameters=
 dependency4.from=Screen
+<<<<<<< Updated upstream
 mainWindow.width=1932
 dependency4.type=UsesDependency
 target2.width=80
 target5.name=Screen
 version=3.0.0
+=======
+mainWindow.width=1378
+dependency4.type=UsesDependency
+target2.width=80
+target5.name=Price
+target9.typeParameters=
+version=3.0.0
+class.GasPumpMachine.superclass=greenfoot.Actor
+>>>>>>> Stashed changes
 target6.type=ClassTarget
 dependency1.to=Message
 target7.width=80
 class.Nozzle.superclass=greenfoot.Actor
+<<<<<<< Updated upstream
 dependency5.from=FuelType
+=======
+dependency5.from=GasPump
+>>>>>>> Stashed changes
 class.Button.image=Screen Button.png
 dependency2.to=Nozzle
 target1.width=80
 dependency5.type=UsesDependency
+<<<<<<< Updated upstream
 editor.fx.0.y=94
 editor.fx.0.x=551
 target2.typeParameters=
@@ -54,10 +83,49 @@ class.Button.superclass=greenfoot.Actor
 target7.x=0
 class.FuelType.superclass=greenfoot.Actor
 target7.name=FuelType
+=======
+editor.fx.0.y=0
+editor.fx.0.x=275
+target2.typeParameters=
+target8.height=50
+dependency3.to=Price
+target3.showInterface=false
+target6.name=Screen
+dependency4.to=FuelType
+target7.showInterface=false
+class.Screen.superclass=
+class.Message.superclass=greenfoot.Actor
+dependency5.to=Button
+target1.showInterface=false
+target8.typeParameters=
+dependency6.to=Screen
+target5.showInterface=false
+target6.width=80
+target9.y=0
+target7.type=ClassTarget
+target9.x=0
+target9.showInterface=false
+target6.height=50
+dependency7.to=Screen
+dependency6.from=GasPump
+package.numTargets=9
+target8.y=0
+target8.x=0
+class.Screen.image=black-screen.png
+target7.typeParameters=
+dependency6.type=UsesDependency
+target1.type=ClassTarget
+class.Button.superclass=greenfoot.Actor
+target7.y=0
+target7.x=0
+class.FuelType.superclass=greenfoot.Actor
+target7.name=State
+>>>>>>> Stashed changes
 target6.y=0
 target1.typeParameters=
 target6.x=0
 target2.height=50
+<<<<<<< Updated upstream
 target5.y=0
 target4.height=50
 target5.x=0
@@ -75,19 +143,53 @@ mainWindow.y=0
 mainWindow.x=-8
 target6.typeParameters=
 dependency1.from=Screen
+=======
+target4.height=50
+target5.y=0
+target5.x=0
+class.State.superclass=
+target1.name=Receipt
+target4.y=0
+target8.type=ClassTarget
+target4.x=0
+dependency7.from=FuelType
+target3.y=0
+target3.x=0
+dependency7.type=UsesDependency
+target2.type=ClassTarget
+target2.y=0
+class.MyWorld.superclass=greenfoot.World
+target2.x=0
+mainWindow.y=0
+mainWindow.x=-9
+dependency1.from=Screen
+target6.typeParameters=
+target8.name=GasPump
+>>>>>>> Stashed changes
 target5.width=80
 target1.y=0
 editor.fx.0.height=747
 target1.x=0
+<<<<<<< Updated upstream
 dependency1.type=UsesDependency
 readme.height=58
 target2.name=Button
 readme.name=@README
 package.numDependencies=5
+=======
+editor.fx.0.height=735
+dependency1.type=UsesDependency
+readme.height=58
+readme.name=@README
+target2.name=Message
+package.numDependencies=7
+target9.type=ClassTarget
+>>>>>>> Stashed changes
 class.GasPump.superclass=greenfoot.World
 target3.type=ClassTarget
 target4.width=80
 dependency2.from=Screen
+<<<<<<< Updated upstream
 dependency2.type=UsesDependency
 target5.typeParameters=
 world.lastInstantiated=GasPump
@@ -98,4 +200,19 @@ target7.height=50
 target6.showInterface=false
 project.charset=UTF-8
 target3.width=80
+=======
+target9.name=FuelType
+dependency2.type=UsesDependency
+target5.typeParameters=
+world.lastInstantiated=GasPump
+target2.showInterface=false
+mainWindow.height=780
+target3.name=Button
+target7.height=50
+target6.showInterface=false
+target9.height=50
+target9.width=80
+target3.width=80
+project.charset=UTF-8
+>>>>>>> Stashed changes
 target4.showInterface=false
