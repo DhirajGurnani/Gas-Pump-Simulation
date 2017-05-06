@@ -27,18 +27,15 @@ public class GasPump extends World
       addObject( new Button(), 735, 300 ) ;
       addObject( new Button(), 735, 400 ) ;
 
+
         
  
       addObject( new Screen(), 400 , 270 ) ;
 	  addObject( new GasType(),400 , 670 ) ;
       addObject( new Nozzle(), 1000 , 170 ) ;
+	  addObject( new Message("Welcome"), 400 , 400 ) ;
+     //addObject( new GasPumpMachine(), 400 , 270 ) ;
 
-        
-        
-        
-        
-        
-        
        
     }
 }

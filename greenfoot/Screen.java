@@ -90,6 +90,18 @@ public class Screen extends Actor
     public void nextState()
     {
         setState(systemstate);
+    
+
+    
+    public Screen(){
+         GreenfootImage image = getImage() ;
+         image.scale( 600, 470 ) ;
+        this.message = new Message("Welcome");
+    }
+    
+    public Screen(String message){
+        this.message = new Message(message);
+
     }
   /*  
 	public void displayReceipt()

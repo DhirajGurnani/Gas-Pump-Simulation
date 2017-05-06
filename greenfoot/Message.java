@@ -2,28 +2,28 @@ import greenfoot.*;
  
 public class Message extends Actor
 {   
-    public Message(){
-        displayText("");
+   
+{
+    private GreenfootImage image;
+    private int msgX;   //Add coordinates to the variables 
+    private int msgY; 
+    String currentMsg;
+
+    public Message(String message)
+    {
+        this.currentMsg = message;
+        image = new GreenfootImage(100, 50);
+        setImage(image);
+        setText(message) ;
     }
     
-    public Message(String msg){
-        displayText(msg);
-    }
     
     public void setText(String msg)
     {
-        displayText(msg);
-    }
-    
-    public void displayText(String msg){
-    GreenfootImage img = new GreenfootImage(200,190);//adjust coordinates
-    img.setColor(greenfoot.Color.WHITE);
-    img.fill();
-    img.setColor(greenfoot.Color.YELLOW);
-    img.drawString(msg,10,15);//adjust coordinates
-    setImage(img); 
-    
-}
-    
+        image.clear();
+        image.setColor(greenfoot.Color.PINK);
+        image.fill(); 
+        image.setColor(greenfoot.Color.BLACK);
+        image.drawString(msg, 10, 50);
     
 }

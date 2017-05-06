@@ -6,12 +6,12 @@
  */
 public interface State  
 {
-   public void welcomeScreen();
-   public void enterZip();
-   public void homeScreen();
-   public void selectFuel();
-   public void startNozzle();
-   public void selectAdditionalServices();
-   public void selectReceipt();
-   
+   public void screenSetup();
+   public void btnSetUp();
+   public void setMessage();
+   public void setGasNumber();
+   public void setKepPad();
+   public void setCreditCard();
+   public void setUpNozzle();
+  
 }
