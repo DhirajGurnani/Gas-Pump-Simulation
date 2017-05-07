@@ -19,6 +19,8 @@ public class Nozzle extends Actor
        int mouseX, mouseY;
        nozzlePressed = false;
        nozzleActive = false;
+       GreenfootImage image = getImage() ;
+        image.scale( 140, 140 ) ;
     }
     
     
