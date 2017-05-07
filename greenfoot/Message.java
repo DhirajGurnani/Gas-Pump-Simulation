@@ -3,7 +3,7 @@ import greenfoot.*;
 public class Message extends Actor
 {   
    
-{
+
     private GreenfootImage image;
     private int msgX;   //Add coordinates to the variables 
     private int msgY; 
@@ -25,5 +25,6 @@ public class Message extends Actor
         image.fill(); 
         image.setColor(greenfoot.Color.BLACK);
         image.drawString(msg, 10, 50);
+    }
     
 }

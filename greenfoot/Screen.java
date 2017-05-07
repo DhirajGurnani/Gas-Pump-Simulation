@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Screen extends Actor
 {
-    private Message message = new Message();
+   // private Message message = new Message();
+    private Message message;
 	static String text="";
 	private static SystemState systemstate;
 	private FuelType fuelType;
@@ -17,6 +18,10 @@ public class Screen extends Actor
        this.message = new Message("Welcome");
     }
 
+    public Screen(String message){
+        this.message = new Message(message);
+
+    }
     
     public void act(){
         fuelType = new FuelType(this);
@@ -90,19 +95,9 @@ public class Screen extends Actor
     public void nextState()
     {
         setState(systemstate);
-    
+    }
 
     
-    public Screen(){
-         GreenfootImage image = getImage() ;
-         image.scale( 600, 470 ) ;
-        this.message = new Message("Welcome");
-    }
-    
-    public Screen(String message){
-        this.message = new Message(message);
-
-    }
   /*  
 	public void displayReceipt()
     {
