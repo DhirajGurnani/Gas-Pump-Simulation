@@ -8,7 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GasPump extends World
 {
-
+    private Message message;
+    private StatesImplementation sts;
+    
+        private ValidateCardState vcs;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -26,16 +29,34 @@ public class GasPump extends World
       addObject( new Button(), 735, 200 ) ;
       addObject( new Button(), 735, 300 ) ;
       addObject( new Button(), 735, 400 ) ;
-
-
-        
- 
+     
       addObject( new Screen(), 400 , 270 ) ;
-	  addObject( new GasType(),400 , 670 ) ;
-      addObject( new Nozzle(), 1000 , 570 ) ;
-	  addObject( new Message("Welcome"), 400 , 400 ) ;
+      
+       message = new Message();
+       sts = new StatesImplementation();
+         vcs = new ValidateCardState(sts);
+       sts.init();
+       addObject( message,300 , 400 ) ;
+       addObject ( sts , 300, 400);
+              addObject ( vcs , 300, 400);
+       
+      addObject( new GasType(),400 , 670 ) ;
+      addObject( new Nozzle(), 1000 , 170 ) ;
+      
+      addObject( new CardReader(),100 , 670 ) ;
+     
+       addObject( new CreditCard(),50 , 670 ) ;
+
      //addObject( new GasPumpMachine(), 400 , 270 ) ;
 
+     
+    }
        
+    public Message getMessage(){
+        return message;
+    }
+    
+    public State getState(){
+        return sts;
     }
 }

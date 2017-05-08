@@ -6,12 +6,15 @@
  */
 public interface State  
 {
-   public void screenSetup();
+  // public void screenSetup();
    public void btnSetUp();
-   public void setMessage();
+   public void setMessage(String msg);
    public void setGasNumber();
    public void setKepPad();
    public void setCreditCard();
    public void setUpNozzle();
+   
+      public void setCurrentState(State updatedState);
+      public State getValidateCardState();
   
 }
