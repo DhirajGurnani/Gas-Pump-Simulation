@@ -13,8 +13,8 @@ public class Message extends Actor
     {
         image = new GreenfootImage(100, 50);
         setImage(image);
-        setText("Welcome");
-        System.out.println("const");
+      //  setText("Welcome");
+      //  System.out.println("const");
     }
     
     /*public Message(String message)

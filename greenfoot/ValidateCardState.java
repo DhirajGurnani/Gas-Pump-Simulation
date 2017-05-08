@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ValidateCardState extends StatesImplementation
+public class ValidateCardState implements State
 {
     /**
      * Act - do whatever the ValidateCardState wants to do. This method is called whenever
@@ -21,10 +21,11 @@ public class ValidateCardState extends StatesImplementation
       
     }
     
-    public void setMessage(String msg){
-        GasPump gb = (GasPump)getWorld();
-        
-            Message ins = gb.getMessage();
-            ins.setText(msg);
+    public void setState(){
+          statesImplementation.setCurrentState(statesImplementation.getWelcomeState());
+    }
+    
+    public String getMessage(){
+           return "Card Validated!";
     }
 }

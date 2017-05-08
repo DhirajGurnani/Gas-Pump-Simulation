@@ -11,7 +11,7 @@ public class GasPump extends World
     private Message message;
     private StatesImplementation sts;
     
-        private ValidateCardState vcs;
+   
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -20,7 +20,8 @@ public class GasPump extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
       super(1300, 900, 1);
-      
+     sts = new StatesImplementation();
+      addObject ( sts , 300, 400);
       addObject( new Button(), 68, 100 ) ;
       addObject( new Button(), 68, 200 ) ;
       addObject( new Button(), 68, 300 ) ;
@@ -33,12 +34,10 @@ public class GasPump extends World
       addObject( new Screen(), 400 , 270 ) ;
       
        message = new Message();
-       sts = new StatesImplementation();
-         vcs = new ValidateCardState(sts);
-       sts.init();
-       addObject( message,300 , 400 ) ;
-       addObject ( sts , 300, 400);
-              addObject ( vcs , 300, 400);
+      
+
+      addObject( message,300 , 400 ) ;
+     
        
       addObject( new GasType(),400 , 670 ) ;
       addObject( new Nozzle(), 1000 , 170 ) ;
@@ -46,17 +45,10 @@ public class GasPump extends World
       addObject( new CardReader(),100 , 670 ) ;
      
        addObject( new CreditCard(),50 , 670 ) ;
-
      //addObject( new GasPumpMachine(), 400 , 270 ) ;
 
      
     }
        
-    public Message getMessage(){
-        return message;
-    }
     
-    public State getState(){
-        return sts;
-    }
 }

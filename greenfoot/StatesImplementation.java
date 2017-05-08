@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class StatesImplementation extends Actor implements State
+public class StatesImplementation extends Actor 
 {
     /**
      * Act - do whatever the GasPumpMachine wants to do. This method is called whenever
@@ -15,44 +15,50 @@ public class StatesImplementation extends Actor implements State
     State welcomeState;
     State validateCard;
     State currentState ;
+    World world;
    
     public StatesImplementation(){
-           /* welcomeState = new WelcomeState(this);
-            validateCard = new ValidateCardState(this);*/
-          //  this.currentState = welcomeState;
+           world = getWorld();
+//           System.out.println(world);
+            welcomeState = new WelcomeState(this);
+            validateCard = new ValidateCardState(this);
+            this.currentState = validateCard;
+        //    System.out.println(currentState.getClass());
         
     }
     
-    public void init(){
+   /* public void init(){
         welcomeState = new WelcomeState(this);
             validateCard = new ValidateCardState(this);
             this.currentState = welcomeState;
-    }
+            
+    }*/
     
-    public State getCurrentState(){
-      return this.currentState;
-        
-    }
     
     public void setCurrentState(State updatedState){
-       this.currentState = updatedState;
+      this.currentState = updatedState;
         
     }
+    
+    public State getValidateCardState(){
+      return this.validateCard;
+        
+    }
+    
+    public State getWelcomeState(){
+      return this.welcomeState;
+        
+    }
+    public String getText(){
+      return currentState.getMessage();
+        
+    }
+    
+    
+    
     public void act() 
     {
         // Add your action cod  e here.
     }  
     
-   public void btnSetUp(){};
-   public void setMessage(String msg){
-       currentState.setMessage(msg);
-    }
-   public void setGasNumber(){}
-   public void setKepPad(){}
-   public void setCreditCard(){}
-   public void setUpNozzle(){}
-   
-      public State getValidateCardState(){
-          return validateCard;
-        }
 }

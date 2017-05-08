@@ -13,7 +13,7 @@ public class Button extends StatesImplementation
      */
     int stateNumber;
     //StatesImplementation state = new StatesImplementation();
-    
+    Message msg;
      public Button(){
          GreenfootImage image = getImage() ;
         image.scale( 40, 40 ) ;
@@ -29,13 +29,11 @@ public class Button extends StatesImplementation
     {
         if(Greenfoot.mousePressed(this))
         {
-           
-        GasPump gb = (GasPump)getWorld();
-       // System.out.println(gb.getState());
-        currentState =  gb.getState();
-         System.out.println(currentState.getClass());
-         currentState.setCurrentState(currentState.getValidateCardState());
-         currentState.setMessage("tmkc tmkb");
+           msg = (Message) getWorld().getObjects(Message.class).get(0);
+           msg.setText(currentState.getMessage());
+          // getWorld().addObject(msg, 300 , 40); 
+          // currentState.setState();
+        
         }
         // Add your action code here.
     }    
