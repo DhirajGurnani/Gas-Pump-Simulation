@@ -15,12 +15,49 @@ public class WelcomeState implements State
     }
    
     
-       public String getMessage(){
-           return "Welcome!";
-        }
+   public String getMessage(){
+       return "Welcome!\n Start by swiping credit card";
+   }
+    
+   public void setState(){
+       statesImplementation.setCurrentState(statesImplementation.getValidateCardState());
+   }
+   
+   public State getCurrentState(){
+       return statesImplementation.getCurrentState();
+   }
         
-        public void setState(){
-           statesImplementation.setCurrentState(statesImplementation.getValidateCardState());
+   public void onButtonClick(int buttonId){
+       System.out.println("Button click welcomestate "+ buttonId);
+       // TODO Instead of setting the state here, set when credit card is on card reader
+       switch(buttonId){
+            case 1:
+                System.out.println("Button 1");
+                break;
+            case 2:
+                System.out.println("Button 2");
+                break;
+            case 3:
+                System.out.println("Button 3");
+                break;
+            case 4:
+                System.out.println("Button 4");
+                break;
+            case 5:
+                System.out.println("Button 5");
+                break;
+            case 6:
+                System.out.println("Button 6");
+                break;                
+            case 7:
+                System.out.println("Button 7");
+                break;                
+            case 8:
+                System.out.println("Button 8");
+                break;                
+            default:
+                System.out.println("Default");
+                break;                
         }
-
+   }
 }

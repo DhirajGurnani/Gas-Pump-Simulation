@@ -26,6 +26,6 @@ public class CardReader extends Actor
         {
           // msg.setText("tmkc");
               
-            }
+        }
     }    
 }

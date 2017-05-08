@@ -11,7 +11,7 @@ public class Message extends Actor
 
     public Message()
     {
-        image = new GreenfootImage(100, 50);
+        image = new GreenfootImage(300, 250);
         setImage(image);
       //  setText("Welcome");
       //  System.out.println("const");

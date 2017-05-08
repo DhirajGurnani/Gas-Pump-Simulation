@@ -20,12 +20,16 @@ public class Key extends KeyPad
                                        new GreenfootImage("clear.png"),
                                        new GreenfootImage("Enter.png")};
     
+    private KeyPad keyPad;
+    private int buttonNumber;
+    
     public Key(){}
     
     public Key(int button){
         GreenfootImage image = images[button];
         image.scale(30, 30);
         setImage(image);
+        buttonNumber = button;
     }
     /**
      * Act - do whatever the Key wants to do. This method is called whenever
@@ -33,6 +37,24 @@ public class Key extends KeyPad
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+       if(Greenfoot.mousePressed(this))
+       {
+           if(buttonNumber >= 0 && buttonNumber <= 9)
+           {
+               keyPad.updateText(buttonNumber+"");               
+           }else if(buttonNumber == 10)
+           {
+               keyPad.updateText("-1");               
+           }else 
+           {
+               keyPad.updateText("");               
+           }
+
+       }
+    }   
+    
+    public void attachKeyPad(KeyPad keypad)
+    {
+        this.keyPad = keypad;
+    }
 }

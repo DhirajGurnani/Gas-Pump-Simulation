@@ -2,11 +2,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class GasPumpMachine here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
-public class StatesImplementation extends Actor 
+public class StatesImplementation extends Actor
 {
     /**
      * Act - do whatever the GasPumpMachine wants to do. This method is called whenever
@@ -14,51 +14,59 @@ public class StatesImplementation extends Actor
      */
     State welcomeState;
     State validateCard;
-    State currentState ;
+    static State currentState ;
     World world;
-   
+    private KeyPad keyPad;
+    
     public StatesImplementation(){
-           world = getWorld();
-//           System.out.println(world);
-            welcomeState = new WelcomeState(this);
-            validateCard = new ValidateCardState(this);
-            this.currentState = validateCard;
-        //    System.out.println(currentState.getClass());
-        
+        GreenfootImage image = getImage() ;
+        image.scale( 600, 470 ) ;
+        world = getWorld();
+        welcomeState = new WelcomeState(this);
+        validateCard = new ValidateCardState(this);
+        this.currentState = welcomeState;
     }
     
-   /* public void init(){
-        welcomeState = new WelcomeState(this);
-            validateCard = new ValidateCardState(this);
-            this.currentState = welcomeState;
-            
-    }*/
+    public void init(){
+        Message msg = (Message) getWorld().getObjects(Message.class).get(0);
+        msg.setText(currentState.getMessage());
+    }
     
     
     public void setCurrentState(State updatedState){
-      this.currentState = updatedState;
-        
+        System.out.println("Current state updated "+ updatedState);
+        this.currentState = updatedState;
+    }
+    
+    public State getCurrentState(){
+        return this.currentState;
     }
     
     public State getValidateCardState(){
-      return this.validateCard;
+        return this.validateCard;
         
     }
     
     public State getWelcomeState(){
-      return this.welcomeState;
+        return this.welcomeState;
         
     }
     public String getText(){
-      return currentState.getMessage();
+        return currentState.getMessage();
         
     }
     
-    
-    
-    public void act() 
+    public void act()
     {
         // Add your action cod  e here.
-    }  
+    }
+    
+    public void setKeyPad(KeyPad keyPad){
+        this.keyPad = keyPad;
+    }
+    
+    public KeyPad getKeyPad(){
+        return this.keyPad;
+    }
     
 }

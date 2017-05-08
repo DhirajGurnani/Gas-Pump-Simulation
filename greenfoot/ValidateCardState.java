@@ -13,19 +13,72 @@ public class ValidateCardState implements State
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     StatesImplementation statesImplementation;
-    
+    private boolean isValid;
+    private String validZip;
+    private String inputZip;
+    private String screenMessage;
     
     
     public ValidateCardState(StatesImplementation statesImplementation){
       this.statesImplementation = statesImplementation;
-      
+      isValid = false;
+      validZip = "123456";
+      screenMessage = "Enter zip code";
     }
     
     public void setState(){
           statesImplementation.setCurrentState(statesImplementation.getWelcomeState());
     }
     
+    public State getCurrentState(){
+       return statesImplementation.getCurrentState();
+    }
+    
     public String getMessage(){
-           return "Card Validated!";
+        return screenMessage;
+    }
+    
+    public void onButtonClick(int buttonId){
+        System.out.println("Button clicked Validate "+ buttonId);
+        switch(buttonId){
+            case 1:
+                System.out.println("Button 1");
+                break;
+            case 2:
+                System.out.println("Button 2");
+                break;
+            case 3:
+                System.out.println("Button 3");
+                break;
+            case 4:
+                System.out.println("Button 4");
+                break;
+            case 5:
+                System.out.println("Button 5");
+                break;
+            case 6:
+                System.out.println("Button 6");
+                break;                
+            case 7:
+                System.out.println("Button 7");
+                break;                
+            case 8:
+                System.out.println("Button 8");
+                break;                
+            case 12:
+                System.out.println("Enter clicked");
+                break;
+            default:
+                System.out.println("Default");
+                break;                
+        }
+    }
+    
+    private void validateZip(){
+        if(inputZip.equals(validZip)){
+            screenMessage = "Credit card validated! \n Please fill the fuel";
+        }else {
+            screenMessage = "Zip code entered is not valid, try again";
+        }
     }
 }
