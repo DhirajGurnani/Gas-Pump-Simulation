@@ -13,16 +13,11 @@ public class ValidateCardState implements State
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     StatesImplementation statesImplementation;
-    private boolean isValid;
-    private String validZip;
-    private String inputZip;
     private String screenMessage;
     
     
     public ValidateCardState(StatesImplementation statesImplementation){
       this.statesImplementation = statesImplementation;
-      isValid = false;
-      validZip = "123456";
       screenMessage = "Enter zip code";
     }
     
@@ -65,20 +60,9 @@ public class ValidateCardState implements State
             case 8:
                 System.out.println("Button 8");
                 break;                
-            case 12:
-                System.out.println("Enter clicked");
-                break;
             default:
                 System.out.println("Default");
                 break;                
-        }
-    }
-    
-    private void validateZip(){
-        if(inputZip.equals(validZip)){
-            screenMessage = "Credit card validated! \n Please fill the fuel";
-        }else {
-            screenMessage = "Zip code entered is not valid, try again";
         }
     }
 }

@@ -11,7 +11,7 @@ public class Message extends Actor
 
     public Message()
     {
-        image = new GreenfootImage(300, 250);
+        image = new GreenfootImage(520, 400);
         setImage(image);
       //  setText("Welcome");
       //  System.out.println("const");
@@ -34,7 +34,12 @@ public class Message extends Actor
         image.setColor(greenfoot.Color.PINK);
         image.fill(); 
         image.setColor(greenfoot.Color.BLACK);
-        image.drawString(msg, 10, 50);
+        image.drawString(msg, 180, 150);
+    }
+    
+    public void setButtonText(String msg, int x, int y){
+        image.setColor(greenfoot.Color.BLACK);        
+        image.drawString(msg, x, y);
     }
     
 }

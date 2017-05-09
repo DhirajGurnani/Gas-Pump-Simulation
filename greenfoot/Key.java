@@ -30,6 +30,8 @@ public class Key extends KeyPad
         image.scale(30, 30);
         setImage(image);
         buttonNumber = button;
+        
+        
     }
     /**
      * Act - do whatever the Key wants to do. This method is called whenever

@@ -13,6 +13,8 @@ public class KeyPad extends StatesImplementation
     private String underLines;
     String inputZip;
     private Message msg;
+    private boolean isValid;
+    private String validZip;
     
     public KeyPad(){
         GreenfootImage image = new  GreenfootImage(150, 200);
@@ -22,6 +24,7 @@ public class KeyPad extends StatesImplementation
         text = "Enter zip code \n\n";
         underLines = "\n__ __ __ __ __";
         inputZip = "";
+        validZip = "12345";
     }
     /**
      * Act - do whatever the KeyPad wants to do. This method is called whenever
@@ -39,28 +42,39 @@ public class KeyPad extends StatesImplementation
             System.out.println(msg);
         }
 
-        if(inputZip.length() >= 12){
-            return;
-        }
         if(str.equals("-1"))
         {
-            inputZip = inputZip.substring(0, inputZip.length()-1);
-        }else if(!str.equals(""))
+            inputZip = inputZip.substring(0, inputZip.length() > 2 ? inputZip.length()-2 : inputZip.length()-1);
+            setMessage(text + inputZip + underLines);
+        }else if(!str.equals("") && inputZip.length() < 12)
         {
             inputZip = inputZip + " " + str;
-        }else 
+            setMessage(text + inputZip + underLines);
+        }else if(inputZip.length() == 12)
         {
-            System.out.println(currentState);
-            currentState.onButtonClick(12);
+            validateZip();
         }
-        
-        System.out.println(text + inputZip + underLines);
-        msg.setText(text+ inputZip + underLines);
     }
     
     public String getZipCode(){
         return inputZip;
     }
     
+    private void validateZip(){
+        if(inputZip.equals(validZip)){
+            // set new state
+            System.out.println("Valid");            
+        }else {
+            System.out.println("Not valid");
+            setMessage("Credit card is not valid");
+        }
+    }
+    
+    private void setMessage(String str){
+        if(currentState instanceof ValidateCardState){
+            System.out.println("Setting message "+str);
+            msg.setText(str);
+        }
+    }
         
 }

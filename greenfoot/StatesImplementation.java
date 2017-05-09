@@ -36,6 +36,7 @@ public class StatesImplementation extends Actor
     public void setCurrentState(State updatedState){
         System.out.println("Current state updated "+ updatedState);
         this.currentState = updatedState;
+        // TODO set button texts based on the states
     }
     
     public State getCurrentState(){
@@ -62,10 +63,12 @@ public class StatesImplementation extends Actor
     }
     
     public void setKeyPad(KeyPad keyPad){
+        System.out.println("Setting " + keyPad);        
         this.keyPad = keyPad;
     }
     
     public KeyPad getKeyPad(){
+        System.out.println("Return " + this.keyPad);
         return this.keyPad;
     }
     

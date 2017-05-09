@@ -13,22 +13,23 @@ public class Button extends StatesImplementation
      */
     int id;
     Message msg;
+    
     public Button(){
         GreenfootImage image = getImage() ;
         image.scale( 40, 40 ) ;
         
     }
     
-    public Button(int id){
+    public Button(int id) {
         GreenfootImage image = getImage() ;
         image.scale( 40, 40 ) ;
         this.id = id;
     }
+    
     public void act()
     {
         if(Greenfoot.mousePressed(this))
         {
-            currentState.setState();
             currentState.onButtonClick(id);
             msg = (Message) getWorld().getObjects(Message.class).get(0);
             System.out.println(currentState.getMessage());
@@ -36,6 +37,5 @@ public class Button extends StatesImplementation
             // getWorld().addObject(msg, 300 , 40);
             // currentState.setState();
         }
-        // Add your action code here.
     }
 }

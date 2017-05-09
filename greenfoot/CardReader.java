@@ -6,8 +6,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class CardReader extends Actor
+public class CardReader extends StatesImplementation
 {
+    private boolean hasCreditCard;
+    
     /**
      * Act - do whatever the CardReader wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,16 +18,19 @@ public class CardReader extends Actor
     public CardReader(){
          GreenfootImage image = getImage() ;
         image.scale( 40, 40 ) ;
+        hasCreditCard = false;
     }
     
     public void act() 
     {
         // Add your action code here.
-        Actor creditCard = getOneObjectAtOffset(+10, +10, CreditCard.class);
-        if(creditCard != null)
+        Actor creditCard = getOneIntersectingObject(CreditCard.class);
+        if(creditCard != null && !hasCreditCard)
         {
-          // msg.setText("tmkc");
-              
+            currentState.setState();  
+            hasCreditCard = true;
+            Message msg = (Message) getWorld().getObjects(Message.class).get(0);
+            msg.setText(currentState.getMessage());
         }
     }    
 }
