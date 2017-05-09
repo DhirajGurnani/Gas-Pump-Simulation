@@ -12,11 +12,12 @@ public class StatesImplementation extends Actor
      * Act - do whatever the GasPumpMachine wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    State welcomeState;
-    State validateCard;
+    private State welcomeState;
+    private State validateCard;
     static State currentState ;
-    World world;
+    private World world;
     private KeyPad keyPad;
+
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -30,12 +31,17 @@ public class StatesImplementation extends Actor
     public void init(){
         Message msg = (Message) getWorld().getObjects(Message.class).get(0);
         msg.setText(currentState.getMessage());
+        msg.setStateButtonText(this.currentState);
+        System.out.println("init "+ msg);        
     }
     
     
     public void setCurrentState(State updatedState){
         System.out.println("Current state updated "+ updatedState);
         this.currentState = updatedState;
+        Message msg = (Message) getWorld().getObjects(Message.class).get(0);
+        msg.setText(currentState.getMessage());
+        msg.setStateButtonText(this.currentState);
         // TODO set button texts based on the states
     }
     

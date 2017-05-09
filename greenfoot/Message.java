@@ -34,12 +34,25 @@ public class Message extends Actor
         image.setColor(greenfoot.Color.PINK);
         image.fill(); 
         image.setColor(greenfoot.Color.BLACK);
-        image.drawString(msg, 180, 150);
+        image.drawString(msg, 180, 150);  
     }
     
-    public void setButtonText(String msg, int x, int y){
-        image.setColor(greenfoot.Color.BLACK);        
-        image.drawString(msg, x, y);
+    public void setStateButtonText(State state){
+        System.out.println("Setting button text "+ state); 
+        if(state instanceof ValidateCardState){
+            image.setColor(greenfoot.Color.BLACK);
+            // Left side four buttons
+            /*image.drawString("<< Start", 10, 50);            
+            image.drawString("<< End", 10, 150);
+            image.drawString("<< Start", 10, 250);
+            image.drawString("<< End", 10, 350);*/
+            
+            // Right side four buttons
+            /*image.drawString("Start >>", 460, 50);            
+            image.drawString("End >>", 460, 150);
+            image.drawString("Start >>", 460, 250);*/
+            image.drawString("Retry >>", 460, 350);            
+        }
     }
     
 }

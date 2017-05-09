@@ -29,8 +29,6 @@ public class CardReader extends StatesImplementation
         {
             currentState.setState();  
             hasCreditCard = true;
-            Message msg = (Message) getWorld().getObjects(Message.class).get(0);
-            msg.setText(currentState.getMessage());
         }
     }    
 }
