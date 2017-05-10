@@ -78,7 +78,7 @@ public class KeyPad extends StatesImplementation
     
     private void setMessage(String str){
         if(currentState instanceof ValidateCardState){
-            System.out.println("Setting message "+str);
+        //    System.out.println("Setting message "+str);
             msg.setText(str);
         }
     }
