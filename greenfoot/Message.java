@@ -42,7 +42,7 @@ public class Message extends Actor
         if(state instanceof ValidateCardState){
             image.setColor(greenfoot.Color.BLACK);
             // Left side four buttons
-            /*image.drawString("<< Start", 10, 50);            
+           /* image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);
             image.drawString("<< Start", 10, 250);
             image.drawString("<< End", 10, 350);*/
@@ -50,8 +50,8 @@ public class Message extends Actor
             // Right side four buttons
             /*image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);
-            image.drawString("Start >>", 460, 250);*/
-            image.drawString("Retry >>", 460, 350);            
+            image.drawString("Start >>", 460, 250);
+            image.drawString("Retry >>", 460, 350);*/            
         }
     }
     
