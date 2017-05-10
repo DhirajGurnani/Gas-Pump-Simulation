@@ -38,20 +38,20 @@ public class Message extends Actor
     }
     
     public void setStateButtonText(State state){
-        System.out.println("Setting button text "+ state); 
-        if(state instanceof ValidateCardState){
+        System.out.println("setStateButtonText for : "+ state); 
+        if(state instanceof FuelState){
             image.setColor(greenfoot.Color.BLACK);
             // Left side four buttons
-           /* image.drawString("<< Start", 10, 50);            
+          /*  image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);
             image.drawString("<< Start", 10, 250);
-            image.drawString("<< End", 10, 350);*/
+            image.drawString("<< End", 10, 350);
             
             // Right side four buttons
-            /*image.drawString("Start >>", 460, 50);            
+            image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);
-            image.drawString("Start >>", 460, 250);
-            image.drawString("Retry >>", 460, 350);*/            
+            image.drawString("Start >>", 460, 250);*/
+            image.drawString("Cancel >>", 460, 350);           
         }
     }
     

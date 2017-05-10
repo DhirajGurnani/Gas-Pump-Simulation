@@ -33,6 +33,10 @@ public class ValidateCardState implements State
         return screenMessage;
     }
     
+    public void setStateMessages(){
+    
+    }
+    
     public void onButtonClick(int buttonId){
         System.out.println("Button clicked Validate "+ buttonId);
         switch(buttonId){
@@ -58,7 +62,7 @@ public class ValidateCardState implements State
                 System.out.println("Button 7");
                 break;                
             case 8:
-                System.out.println("Button 8");
+                System.out.println("Button c8");
                 break;                
             default:
                 System.out.println("Default");

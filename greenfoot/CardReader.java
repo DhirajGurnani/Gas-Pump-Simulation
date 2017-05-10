@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CardReader extends StatesImplementation
 {
+     Message msg;
     private boolean hasCreditCard;
     
     /**
@@ -27,7 +28,7 @@ public class CardReader extends StatesImplementation
         Actor creditCard = getOneIntersectingObject(CreditCard.class);
         if(creditCard != null && !hasCreditCard)
         {
-            currentState.setState();  
+            currentState.setState();
             hasCreditCard = true;
         }
     }    
