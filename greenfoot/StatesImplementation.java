@@ -16,9 +16,12 @@ public class StatesImplementation extends Actor
     State validateCard;
     State fuelState;
     State pumping;
+    State additionalServices;
     static State currentState ;
     World world;
     private KeyPad keyPad;
+    public boolean pumping_done = false;
+    //private Message msg;
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -28,12 +31,18 @@ public class StatesImplementation extends Actor
         validateCard = new ValidateCardState(this);
         fuelState = new FuelState(this);
         pumping = new PumpingState(this);
+        additionalServices = new AdditionalServices(this);
         this.currentState = welcomeState;
     }
     
     public void init(){
         Message msg = (Message) getWorld().getObjects(Message.class).get(0);
         msg.setText(currentState.getMessage());
+        /*if(currentState instanceof AdditionalServices){
+            System.out.println("idhar aaya");
+            //msg = (Message) getWorld().getObjects(Message.class).get(0);
+                msg.setStateButtonText(currentState);
+        }*/
     }
     
     
@@ -44,6 +53,7 @@ public class StatesImplementation extends Actor
     }
     
     public State getCurrentState(){
+        setStateMessages();
         return this.currentState;
     }
     
@@ -59,6 +69,11 @@ public class StatesImplementation extends Actor
     
     public State getPumpingState(){
         return this.pumping;
+        
+    }
+    
+    public State getAdditionalServicesState(){
+        return this.additionalServices;
         
     }
     
@@ -86,4 +101,8 @@ public class StatesImplementation extends Actor
         return this.keyPad;
     }
     
+    public void setStateMessages(){
+                 Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
+                msg.setStateButtonText(currentState);
+    }
 }

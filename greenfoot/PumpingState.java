@@ -9,6 +9,7 @@ public class PumpingState  implements State
     // instance variables - replace the example below with your own
 
     StatesImplementation statesImplementation;
+    //Message msg;
     
     public PumpingState(StatesImplementation statesImplementation){
         this.statesImplementation = statesImplementation;
@@ -16,11 +17,11 @@ public class PumpingState  implements State
    
     
    public String getMessage(){
-       return "Proceed Pumping";
+       return "Click on Nozzle to Proceed Pumping";
    }
     
    public void setState(){
-       statesImplementation.setCurrentState(statesImplementation.getPumpingState());
+       statesImplementation.setCurrentState(statesImplementation.getAdditionalServicesState());
    }
    
    public State getCurrentState(){
@@ -28,7 +29,7 @@ public class PumpingState  implements State
    }
         
    public void onButtonClick(int buttonId){
-       System.out.println("Button click welcomestate "+ buttonId);
+       System.out.println("Button click PumpingState "+ buttonId);
        // TODO Instead of setting the state here, set when credit card is on card reader
        switch(buttonId){
             case 1:
@@ -53,7 +54,8 @@ public class PumpingState  implements State
                 System.out.println("Button 7");
                 break;                
             case 8:
-                System.out.println("Button 8");
+                //System.out.println("Button 8");
+                statesImplementation.setCurrentState(statesImplementation.getAdditionalServicesState());
                 break;                
             default:
                 System.out.println("Default");

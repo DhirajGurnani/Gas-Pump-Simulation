@@ -34,6 +34,7 @@ public class Button extends StatesImplementation
             msg = (Message) getWorld().getObjects(Message.class).get(0);
             System.out.println(currentState.getMessage());
             msg.setText(currentState.getMessage());
+            msg.setStateButtonText(currentState);
             // getWorld().addObject(msg, 300 , 40);
             // currentState.setState();
         }

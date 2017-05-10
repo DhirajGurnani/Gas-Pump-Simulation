@@ -1,28 +1,26 @@
-    /**
- * Write a description of class FuelState here.
+/**
+ * Write a description of class AdditionalServices here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-import greenfoot.*;
-public class FuelState implements State 
+public class AdditionalServices  implements State 
 {
     // instance variables - replace the example below with your own
-    
+
     StatesImplementation statesImplementation;
     
-    
-    public FuelState(StatesImplementation statesImplementation){
+    public AdditionalServices(StatesImplementation statesImplementation){
         this.statesImplementation = statesImplementation;
     }
    
     
    public String getMessage(){
-       return "Please select one of the gas type";
+       return "Additional Services";
    }
     
    public void setState(){
-       statesImplementation.setCurrentState(statesImplementation.getPumpingState());
+       statesImplementation.setCurrentState(statesImplementation.getValidateCardState());
    }
    
    public State getCurrentState(){
@@ -30,7 +28,7 @@ public class FuelState implements State
    }
         
    public void onButtonClick(int buttonId){
-       System.out.println("Button click fuelState "+ buttonId);
+       System.out.println("Button click welcomestate "+ buttonId);
        // TODO Instead of setting the state here, set when credit card is on card reader
        switch(buttonId){
             case 1:
@@ -55,8 +53,7 @@ public class FuelState implements State
                 System.out.println("Button 7");
                 break;                
             case 8:
-                System.out.println("Button 8 - Cancel");
-                statesImplementation.setCurrentState(statesImplementation.getWelcomeState());
+                System.out.println("Button 8");
                 break;                
             default:
                 System.out.println("Default");
