@@ -1,41 +1,36 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
- * Write a description of class ValidateCardState here.
+ * Write a description of class FuelState here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ValidateCardState implements State
+public class FuelState implements State 
 {
-    /**
-     * Act - do whatever the ValidateCardState wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    // instance variables - replace the example below with your own
+
     StatesImplementation statesImplementation;
-    private String screenMessage;
     
-    
-    public ValidateCardState(StatesImplementation statesImplementation){
-      this.statesImplementation = statesImplementation;
-      screenMessage = "Enter zip code";
+    public FuelState(StatesImplementation statesImplementation){
+        this.statesImplementation = statesImplementation;
     }
+   
     
-    public void setState(){
-          statesImplementation.setCurrentState(statesImplementation.getFuelState());
-    }
+   public String getMessage(){
+       return "Please select one of the gas type";
+   }
     
-    public State getCurrentState(){
+   public void setState(){
+       statesImplementation.setCurrentState(statesImplementation.getPumpingState());
+   }
+   
+   public State getCurrentState(){
        return statesImplementation.getCurrentState();
-    }
-    
-    public String getMessage(){
-        return screenMessage;
-    }
-    
-    public void onButtonClick(int buttonId){
-        System.out.println("Button clicked Validate "+ buttonId);
-        switch(buttonId){
+   }
+        
+   public void onButtonClick(int buttonId){
+       System.out.println("Button click welcomestate "+ buttonId);
+       // TODO Instead of setting the state here, set when credit card is on card reader
+       switch(buttonId){
             case 1:
                 System.out.println("Button 1");
                 break;
@@ -64,5 +59,5 @@ public class ValidateCardState implements State
                 System.out.println("Default");
                 break;                
         }
-    }
+   }
 }

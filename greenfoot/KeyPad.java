@@ -61,9 +61,12 @@ public class KeyPad extends StatesImplementation
     }
     
     private void validateZip(){
+        inputZip = inputZip.replace(" ", "");
+        System.out.println("Input " + inputZip);
+        System.out.println("Valid "+ validZip);
         if(inputZip.equals(validZip)){
-            // set new state
             System.out.println("Valid");            
+            currentState.setState();
         }else {
             System.out.println("Not valid");
             setMessage("Credit card is not valid");
