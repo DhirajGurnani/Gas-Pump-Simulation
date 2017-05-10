@@ -33,6 +33,7 @@ public class Screen extends Actor
         {
             fuelType.showFuelType();
         }
+        
         if (systemstate == SystemState.PUMPGAS) {
             pumping.PumpGas();
         }

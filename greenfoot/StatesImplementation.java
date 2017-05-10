@@ -12,12 +12,13 @@ public class StatesImplementation extends Actor
      * Act - do whatever the GasPumpMachine wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private State welcomeState;
-    private State validateCard;
+    State welcomeState;
+    State validateCard;
+    State fueltype;
+    State pumping;
     static State currentState ;
-    private World world;
+    World world;
     private KeyPad keyPad;
-
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -25,23 +26,21 @@ public class StatesImplementation extends Actor
         world = getWorld();
         welcomeState = new WelcomeState(this);
         validateCard = new ValidateCardState(this);
-        this.currentState = welcomeState;
+        fueltype = new fuelState(this);
+        pumping = new PumpingState(this);
+        this.currentState = pumping;
     }
     
     public void init(){
         Message msg = (Message) getWorld().getObjects(Message.class).get(0);
         msg.setText(currentState.getMessage());
-        msg.setStateButtonText(this.currentState);
-        System.out.println("init "+ msg);        
     }
     
     
     public void setCurrentState(State updatedState){
         System.out.println("Current state updated "+ updatedState);
         this.currentState = updatedState;
-        Message msg = (Message) getWorld().getObjects(Message.class).get(0);
-        msg.setText(currentState.getMessage());
-        msg.setStateButtonText(this.currentState);
+        init();
         // TODO set button texts based on the states
     }
     
@@ -51,6 +50,16 @@ public class StatesImplementation extends Actor
     
     public State getValidateCardState(){
         return this.validateCard;
+        
+    }
+    
+    public State getfuelState(){
+        return this.fueltype;
+        
+    }
+    
+    public State getPumpingState(){
+        return this.pumping;
         
     }
     
