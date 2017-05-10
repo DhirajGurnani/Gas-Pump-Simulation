@@ -22,7 +22,7 @@ public class KeyPad extends StatesImplementation
         image.fill();
         setImage(image);
         text = "Enter zip code \n\n";
-        underLines = "\n__ __ __ __ __";
+        underLines = "\n_  _  _  _  _";
         inputZip = "";
         validZip = "12345";
     }
@@ -46,11 +46,11 @@ public class KeyPad extends StatesImplementation
         {
             inputZip = inputZip.substring(0, inputZip.length() > 2 ? inputZip.length()-2 : inputZip.length()-1);
             setMessage(text + inputZip + underLines);
-        }else if(!str.equals("") && inputZip.length() < 12)
+        }else if(!str.equals("") && inputZip.length() < 10)
         {
             inputZip = inputZip + " " + str;
             setMessage(text + inputZip + underLines);
-        }else if(inputZip.length() == 12)
+        }else if(inputZip.length() == 10 && str.equals(""))
         {
             validateZip();
         }
