@@ -39,26 +39,28 @@ public class GasPump extends World
         addObject( message,400 ,270 );
         
         addObject( new GasType(),400 , 670 ) ;
-        addObject( new Nozzle(), 1000 , 670 ) ;
+        addObject( new Nozzle(), 1000 , 770 ) ;
         addObject( new CardReader(),100 , 670 ) ;
         addObject( new CreditCard(),50 , 670 ) ;
         
         KeyPad keyPad = new KeyPad();
-        addObject( keyPad, 992, 200 );
+        addObject( keyPad, 992, 500 );
         for(int i=0; i<12; i++){
             Key key = new Key(i);
             key.attachKeyPad(keyPad);
             if(i < 3){
-                addObject( key, 950+(i*40), 140);
+                addObject( key, 950+(i*40), 440);
             }else if(i > 2 && i < 6){
-                addObject( key, 950+((i%3)*40), 180);
+                addObject( key, 950+((i%3)*40), 480);
             }else if(i > 5 && i < 9){
-                addObject( key, 950+((i%6)*40), 220);
+                addObject( key, 950+((i%6)*40), 520);
             }else if(i > 8){
-                addObject( key, 950+((i%9)*40), 260);
+                addObject( key, 950+((i%9)*40), 560);
             }
       }
-      sts.init();
+      
+      //addObject(new Receipt(), 992, 200);
+      sts.setStateMessages();
       sts.setKeyPad(keyPad);
     }    
 }

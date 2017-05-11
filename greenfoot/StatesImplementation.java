@@ -46,25 +46,16 @@ public class StatesImplementation extends Actor
         this.currentState = welcomeState;
     }
     
-    public void init(){
-        Message msg = (Message) getWorld().getObjects(Message.class).get(0);
-        msg.setText(currentState.getMessage());
-        /*if(currentState instanceof AdditionalServices){
-            System.out.println("idhar aaya");
-            //msg = (Message) getWorld().getObjects(Message.class).get(0);
-                msg.setStateButtonText(currentState);
-        }*/
-    }
-    
-    
     public void setCurrentState(State updatedState){
         System.out.println("Current state updated "+ updatedState);
         this.currentState = updatedState;
-        init();
+        setStateMessages();
+        if(this.currentState instanceof WelcomeState){
+            Greenfoot.setWorld(new GasPump());
+        }
     }
     
     public State getCurrentState(){
-        setStateMessages();
         return this.currentState;
     }
     
@@ -144,7 +135,9 @@ public class StatesImplementation extends Actor
     }
     
     public void setStateMessages(){
-                 Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
-                msg.setStateButtonText(currentState);
+        Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
+        msg.setText(currentState.getMessage());        
+        msg.setStateButtonText(currentState);
+        
     }
 }

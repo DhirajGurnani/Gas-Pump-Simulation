@@ -31,5 +31,11 @@ public class CardReader extends StatesImplementation
             currentState.setState();
             hasCreditCard = true;
         }
-    }    
+    }
+    
+    public void reset(){
+        Actor creditCard = getOneIntersectingObject(CreditCard.class);
+        creditCard.move(-100);
+        hasCreditCard = false;
+    }
 }

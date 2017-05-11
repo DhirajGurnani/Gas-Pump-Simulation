@@ -18,7 +18,7 @@ public class ValidateCardState implements State
     
     public ValidateCardState(StatesImplementation statesImplementation){
       this.statesImplementation = statesImplementation;
-      screenMessage = "Enter your zip code : ";
+      screenMessage = "Enter your zip code \n\n" + "\n\t_  _  _  _  _";
     }
     
     public void setState(){
@@ -62,7 +62,7 @@ public class ValidateCardState implements State
                 System.out.println("Button 7");
                 break;                
             case 8:
-                System.out.println("Button c8");
+                System.out.println("Button 8");
                 break;                
             default:
                 System.out.println("Default");

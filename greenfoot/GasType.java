@@ -18,7 +18,6 @@ public class GasType extends StatesImplementation
         if (Greenfoot.mouseClicked(this))
         {
             MouseInfo mouse = Greenfoot.getMouseInfo();
-            System.out.println("aaya");
             fueltype = chooseGasType(mouse.getX(),mouse.getY());
         }
         return fueltype;
