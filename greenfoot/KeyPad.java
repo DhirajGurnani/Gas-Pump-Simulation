@@ -72,13 +72,14 @@ public class KeyPad extends StatesImplementation
             msg.setStateButtonText(currentState);
         }else {
             System.out.println("Not valid");
-            setMessage("Credit card is not valid");
+            inputZip = "";
+            setMessage("Credit card is not valid, retry\n\n" + text + underLines);
+            setCancelMessage();
         }
     }
     
     private void setMessage(String str){
         if(currentState instanceof ValidateCardState){
-        //    System.out.println("Setting message "+str);
             msg.setText(str);
         }
     }

@@ -17,13 +17,21 @@ public class ValidateCardState implements State
     
     
     public ValidateCardState(StatesImplementation statesImplementation){
-      this.statesImplementation = statesImplementation;
+        this.statesImplementation = statesImplementation;
+        screenMessage = "Enter your zip code \n\n" + "\n\t_  _  _  _  _";
+    }
+    
+    public void setState(){         
+        //statesImplementation.setCurrentState(statesImplementation.getAskingPrintReceiptState());
+          if(statesImplementation.scenario() == 3){
+              statesImplementation.setCurrentState(statesImplementation.getAskingPrintReceiptState());
+            }else{
+                statesImplementation.setCurrentState(statesImplementation.getFuelState());
+            }
+
       screenMessage = "Enter your zip code : ";
     }
     
-    public void setState(){
-          statesImplementation.setCurrentState(statesImplementation.getFuelState());
-    }
     
     public State getCurrentState(){
        return statesImplementation.getCurrentState();
@@ -62,7 +70,8 @@ public class ValidateCardState implements State
                 System.out.println("Button 7");
                 break;                
             case 8:
-                System.out.println("Button c8");
+                System.out.println("Button 8");
+                statesImplementation.setCurrentState(statesImplementation.getWelcomeState());
                 break;                
             default:
                 System.out.println("Default");

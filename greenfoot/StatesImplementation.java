@@ -31,6 +31,7 @@ public class StatesImplementation extends Actor
     static boolean maintenance_service = false;
     //Double totalprice = 0.0;
     //private Message msg;
+    static int currentScenario;
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -48,25 +49,21 @@ public class StatesImplementation extends Actor
         
     }
     
-    public void init(){
-        Message msg = (Message) getWorld().getObjects(Message.class).get(0);
-        msg.setText(currentState.getMessage());
-        /*if(currentState instanceof AdditionalServices){
-            System.out.println("idhar aaya");
-            //msg = (Message) getWorld().getObjects(Message.class).get(0);
-                msg.setStateButtonText(currentState);
-        }*/
+    public int scenario(){
+        return currentScenario;
+        
     }
-    
     
     public void setCurrentState(State updatedState){
         System.out.println("Current state updated "+ updatedState);
         this.currentState = updatedState;
-        init();
+        setStateMessages();
+        if(this.currentState instanceof WelcomeState){
+            Greenfoot.setWorld(new GasPump());
+        }
     }
     
     public State getCurrentState(){
-        setStateMessages();
         return this.currentState;
     }
     
@@ -146,8 +143,15 @@ public class StatesImplementation extends Actor
     }
     
     public void setStateMessages(){
-                 Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
-                msg.setStateButtonText(currentState);
+        Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
+        msg.setText(currentState.getMessage());        
+        msg.setStateButtonText(currentState);
+        
+    }
+    
+    public void setCancelMessage(){
+        Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
+        msg.setCancelMessage(this.currentState);
     }
     
     public double getGallon_filled() {
