@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed May 10 19:06:15 PDT 2017
+#Wed May 10 19:57:52 PDT 2017
 target16.name=ThankYouState
 dependency35.to=StatesImplementation
 target26.width=80
@@ -115,7 +115,7 @@ dependency51.to=StatesImplementation
 target8.height=50
 target25.showInterface=false
 dependency26.to=ValidateCardState
-mainWindow.y=-9
+mainWindow.y=0
 mainWindow.x=-9
 target3.showInterface=false
 target12.showInterface=false
@@ -504,6 +504,6 @@ dependency53.from=GasPump
 dependency56.type=UsesDependency
 target1.height=50
 target4.typeParameters=
-mainWindow.width=1932
+mainWindow.width=1646
 =\=\=\=\=\=\=
 dependency60.to=StatesImplementation

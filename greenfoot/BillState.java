@@ -9,14 +9,23 @@ public class BillState  implements State
     // instance variables - replace the example below with your own
 
     StatesImplementation statesImplementation;
+    Double totalprice = 0.0;
     
     public BillState(StatesImplementation statesImplementation){
+        
         this.statesImplementation = statesImplementation;
+       /*  totalprice = Buildorder.getOrder(statesImplementation.isWash_service(),statesImplementation.isAir_service(),
+       statesImplementation.isMaintenance_service(), statesImplementation.getFueltype_selected(), 
+       statesImplementation.getGallon_filled());*/
     }
    
     
    public String getMessage(){
-       return "Total Amount:";
+       //System.out.println("get message check");
+       totalprice = Buildorder.getOrder(statesImplementation.isWash_service(),statesImplementation.isAir_service(),
+       statesImplementation.isMaintenance_service(), statesImplementation.getFueltype_selected(), 
+       statesImplementation.getGallon_filled());
+       return "Total Amount: " + totalprice;
    }
     
    public void setState(){

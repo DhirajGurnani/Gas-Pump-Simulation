@@ -17,7 +17,7 @@ public class Fuel extends LeafDecorator
         // Add your action code here.
     }    
     
-    	private String[] options;
+    	private String options;
 	private Double Quantity;
 
 	public Fuel(String d) {
@@ -29,34 +29,35 @@ public class Fuel extends LeafDecorator
 		this.Quantity = a;
 	}
 
-	public void setOptions(String[] options) {
+	public void setOptions(String options) {
 		// 1 sauce free, extra +.75
 		this.options = options;
 /*		if (options.length > 1)
 			this.price += (options.length - 1) * 0.75;
 */	
-/*		System.out.println(this.options[0]);
-		System.out.println(this.price);*/
-		if(this.options[0].equalsIgnoreCase("87")){
+		System.out.println(this.options);
+		System.out.println(this.price);
+		if(this.options.equalsIgnoreCase("87")){
 			this.price += Quantity  * 2.929;	
 			
-		} else if(this.options[0].equalsIgnoreCase("89")){
+		} else if(this.options.equalsIgnoreCase("89")){
 			this.price += Quantity  * 3.129	;
 			
-		} else if(this.options[0].equalsIgnoreCase("93")){
+		} else if(this.options.equalsIgnoreCase("93")){
 			this.price += Quantity  * 3.329;	
 			
 		}
+
 	}
 
 	public String getDescription() {
 		String desc = "";
-		for (int i = 0; i < options.length; i++) {
+		/*for (int i = 0; i < options.length; i++) {
 			if (i > 0)
 				desc += " + " + options[i];
 			else
 				desc = options[i];
-		}
+		}*/
 		return desc;
 	}
 }

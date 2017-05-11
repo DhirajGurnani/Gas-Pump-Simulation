@@ -24,11 +24,12 @@ public class StatesImplementation extends Actor
     World world;
     private KeyPad keyPad;
     public boolean pumping_done = false;
-    double gallon_filled;
-    String fueltype_selected;
-    boolean wash_service =  false;
-    boolean air_service = false;
-    boolean maintenance_service = false;
+    static double gallon_filled;
+    static String fueltype_selected;
+    static boolean wash_service =  false;
+    static boolean air_service = false;
+    static boolean maintenance_service = false;
+    //Double totalprice = 0.0;
     //private Message msg;
     
     public StatesImplementation(){
@@ -44,6 +45,7 @@ public class StatesImplementation extends Actor
         thankyoustate = new ThankYouState(this);
         billState = new BillState(this);
         this.currentState = welcomeState;
+        
     }
     
     public void init(){
@@ -147,4 +149,38 @@ public class StatesImplementation extends Actor
                  Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
                 msg.setStateButtonText(currentState);
     }
+    
+    public double getGallon_filled() {
+        		System.out.println(gallon_filled);
+		return gallon_filled;
+
+	}
+
+	public void setGallon_filled(double gallon_filled) {
+		this.gallon_filled = gallon_filled;
+	}
+
+	public String getFueltype_selected() {
+		return fueltype_selected;
+	}
+
+	public void setFueltype_selected(String fueltype_selected) {
+		this.fueltype_selected = fueltype_selected;
+	}
+
+	public boolean isWash_service() {
+	    System.out.println(wash_service);
+		return wash_service;
+	}
+
+	public boolean isAir_service() {
+	    System.out.println(air_service);
+		return air_service;
+	}
+
+	public boolean isMaintenance_service() {
+	    System.out.println(maintenance_service);
+		return maintenance_service;
+	}
+
 }
