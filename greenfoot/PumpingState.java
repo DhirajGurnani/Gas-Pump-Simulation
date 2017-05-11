@@ -55,11 +55,14 @@ public class PumpingState  implements State
                 break;                
             case 8:
                 //System.out.println("Button 8");
-                 if(statesImplementation.scenario() == 3 || statesImplementation.scenario() == 2){
-                statesImplementation.setCurrentState(statesImplementation.getAdditionalServicesState());
-            }else{
-                statesImplementation.setCurrentState(statesImplementation.getBillState());
-            }
+                if(statesImplementation.scenario() == 3 || statesImplementation.scenario() == 2){
+                    statesImplementation.setCurrentState(statesImplementation.getAdditionalServicesState());
+                }else{
+                    statesImplementation.setCurrentState(statesImplementation.getBillState());
+                }
+
+                //statesImplementation.setCurrentState(statesImplementation.getAdditionalServicesState());
+
                 break;                
             default:
                 System.out.println("Default");

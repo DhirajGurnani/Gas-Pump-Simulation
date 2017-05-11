@@ -28,7 +28,10 @@ public class ValidateCardState implements State
             }else{
                 statesImplementation.setCurrentState(statesImplementation.getFuelState());
             }
+
+      screenMessage = "Enter your zip code : ";
     }
+    
     
     public State getCurrentState(){
        return statesImplementation.getCurrentState();
