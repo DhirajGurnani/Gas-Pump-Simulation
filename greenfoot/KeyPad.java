@@ -22,7 +22,7 @@ public class KeyPad extends StatesImplementation
         image.fill();
         setImage(image);
         text = "Enter zip code \n\n";
-        underLines = "\n\t_  _  _  _  _";
+        underLines = "\n_  _  _  _  _";
         inputZip = "";
         validZip = "12345";
     }
@@ -72,13 +72,14 @@ public class KeyPad extends StatesImplementation
             msg.setStateButtonText(currentState);
         }else {
             System.out.println("Not valid");
-            setMessage("Credit card is not valid");
+            inputZip = "";
+            setMessage("Credit card is not valid, retry\n\n" + text + underLines);
+            setCancelMessage();
         }
     }
     
     private void setMessage(String str){
         if(currentState instanceof ValidateCardState){
-        //    System.out.println("Setting message "+str);
             msg.setText(str);
         }
     }

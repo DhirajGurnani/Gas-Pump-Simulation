@@ -51,9 +51,9 @@ public class Message extends Actor
             
             // Right side four buttons
             /*image.drawString("Start >>", 460, 50);            
-            image.drawString("End >>", 460, 150);*/
+            image.drawString("End >>", 460, 150);
             image.drawString("Retry >>", 430, 250);
-            image.drawString("Cancel >>", 420, 350);            
+            image.drawString("Cancel >>", 420, 350);*/            
         }
         else if(state instanceof FuelState){
               image.drawString("Cancel >>", 430, 350);
@@ -113,4 +113,9 @@ public class Message extends Actor
         }
     }
     
+    public void setCancelMessage(State state){
+        if(state instanceof ValidateCardState){
+            image.drawString("Cancel >>", 420, 350);
+        }
+    }
 }

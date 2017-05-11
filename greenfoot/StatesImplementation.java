@@ -30,6 +30,7 @@ public class StatesImplementation extends Actor
     boolean air_service = false;
     boolean maintenance_service = false;
     //private Message msg;
+    static int currentScenario;
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -44,6 +45,11 @@ public class StatesImplementation extends Actor
         thankyoustate = new ThankYouState(this);
         billState = new BillState(this);
         this.currentState = welcomeState;
+    }
+    
+    public int scenario(){
+        return currentScenario;
+        
     }
     
     public void setCurrentState(State updatedState){
@@ -139,5 +145,10 @@ public class StatesImplementation extends Actor
         msg.setText(currentState.getMessage());        
         msg.setStateButtonText(currentState);
         
+    }
+    
+    public void setCancelMessage(){
+        Message   msg = (Message) getWorld().getObjects(Message.class).get(0);
+        msg.setCancelMessage(this.currentState);
     }
 }

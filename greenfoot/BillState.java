@@ -58,9 +58,15 @@ public class BillState  implements State
                 break;                
             case 8:
                 System.out.println("Button 8");
+
+                if(statesImplementation.scenario() == 3){
+                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
+            }else{
                 statesImplementation.setCurrentState(statesImplementation.getAskingPrintReceiptState());
-                //statesImplementation;
-                break;                
+            }
+               //statesImplementation
+               break;                
+
             default:
                 System.out.println("Default");
                 break;                

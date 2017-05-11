@@ -35,6 +35,9 @@ public class GasPump extends World
         addObject( new Button(7), 735, 320 ) ;
         addObject( new Button(8), 735, 420 ) ;    
         //addObject( new Screen(), 400 , 270 ) ; 
+        addObject( new Scenario1(), 835, 420 ) ;
+        addObject( new Scenario2(), 875, 420 ) ;
+        addObject( new Scenario3(), 905, 420 ) ;
 
         addObject( message,400 ,270 );
         
