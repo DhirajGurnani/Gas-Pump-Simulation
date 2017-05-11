@@ -1,22 +1,22 @@
 /**
- * Write a description of class AdditionalServices here.
+ * Write a description of class BillState here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AdditionalServices  implements State 
+public class BillState  implements State 
 {
     // instance variables - replace the example below with your own
 
     StatesImplementation statesImplementation;
     
-    public AdditionalServices(StatesImplementation statesImplementation){
+    public BillState(StatesImplementation statesImplementation){
         this.statesImplementation = statesImplementation;
     }
    
     
    public String getMessage(){
-       return "Additional Services";
+       return "Total Amount:";
    }
     
    public void setState(){
@@ -58,7 +58,7 @@ public class AdditionalServices  implements State
                 break;                
             case 8:
                 System.out.println("Button 8");
-                statesImplementation.setCurrentState(statesImplementation.getBillState());
+                statesImplementation.setCurrentState(statesImplementation.getAskingPrintReceiptState());
                 //statesImplementation;
                 break;                
             default:

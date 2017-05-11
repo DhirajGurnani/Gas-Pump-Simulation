@@ -84,7 +84,37 @@ public class Message extends Actor
            /* image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);*/
             image.drawString("Air Filling >>", 450, 250);
-            image.drawString("None >>", 460, 350);            
+            image.drawString("Next >>", 460, 350);            
+        }
+        
+        if(state instanceof AskingPrintReceiptState){
+            image.setColor(greenfoot.Color.BLACK);
+            // Left side four buttons
+           /* image.drawString("<< Start", 10, 50);            
+            image.drawString("<< End", 10, 150);
+            image.drawString("<< Car Wash", 10, 250);
+            image.drawString("<< Car Maintenance", 10, 350);*/
+            
+            // Right side four buttons
+           /* image.drawString("Start >>", 460, 50);            
+            image.drawString("End >>", 460, 150);*/
+            image.drawString("Yes >>", 450, 250);
+            image.drawString("No >>", 460, 350);
+        }
+        
+                if(state instanceof BillState){
+            image.setColor(greenfoot.Color.BLACK);
+            // Left side four buttons
+           /* image.drawString("<< Start", 10, 50);            
+            image.drawString("<< End", 10, 150);
+            image.drawString("<< Car Wash", 10, 250);
+            image.drawString("<< Car Maintenance", 10, 350);*/
+            
+            // Right side four buttons
+           /* image.drawString("Start >>", 460, 50);            
+            image.drawString("End >>", 460, 150);*/
+            //image.drawString("Yes >>", 450, 250);
+            image.drawString("Next >>", 460, 350);  
         }
     }
     

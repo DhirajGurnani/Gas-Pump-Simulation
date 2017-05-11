@@ -13,7 +13,7 @@ public class AskingPrintReceiptState implements State
     
     public AskingPrintReceiptState(StatesImplementation statesImplementation){
       this.statesImplementation = statesImplementation;
-      screenMessage = "Do you want to print your receipt";
+      screenMessage = "Total Amount"+"\n"+"Do you want to print your receipt";
     }
     
     public void setState(){
@@ -55,9 +55,11 @@ public class AskingPrintReceiptState implements State
                 break;                
             case 7:
                 System.out.println("Button 7");
+                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
                 break;                
             case 8:
                 System.out.println("Button c8");
+                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
                 break;                
             default:
                 System.out.println("Default");

@@ -32,6 +32,7 @@ public class GasType extends StatesImplementation
             MouseInfo mouse = Greenfoot.getMouseInfo();
             currentState.setState();            
             fuel_selected = chooseGasType(mouse.getX(),mouse.getY());
+            fueltype_selected = fuel_selected;
             msg = (Message) getWorld().getObjects(Message.class).get(0);
             setMessage("Fuel type " + fuel_selected + " selected" + "\n\t" + "Proceed Pumping");
         }

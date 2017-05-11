@@ -43,7 +43,7 @@ public class Nozzle extends StatesImplementation
                         if(countPress == 2){
                             pumping_done = true;
                         }
-                        gallons = i;
+                        gallon_filled = i;
                         break;
                     }                    
                     setMessage("Pumping fuel "+ i + " gallons");
@@ -53,7 +53,7 @@ public class Nozzle extends StatesImplementation
                         System.err.println("Thread can't sleep "+ e.getMessage());
                     }
                 }
-                setMessage("Pumping done! "+ gallons + " gallons" );
+                setMessage("Pumping done! "+ gallon_filled + " gallons" );
                 msg.setStateButtonText(currentState);
                 //System.out.println("under this expected");
                     //image.drawString("Retry >>", 460, 350);

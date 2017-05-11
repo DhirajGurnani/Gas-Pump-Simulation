@@ -17,10 +17,18 @@ public class StatesImplementation extends Actor
     State fuelState;
     State pumping;
     State additionalServices;
+    State askingprintreceipt;
+    State thankyoustate;
+    State billState;
     static State currentState ;
     World world;
     private KeyPad keyPad;
     public boolean pumping_done = false;
+    double gallon_filled;
+    String fueltype_selected;
+    boolean wash_service =  false;
+    boolean air_service = false;
+    boolean maintenance_service = false;
     //private Message msg;
     
     public StatesImplementation(){
@@ -32,6 +40,9 @@ public class StatesImplementation extends Actor
         fuelState = new FuelState(this);
         pumping = new PumpingState(this);
         additionalServices = new AdditionalServices(this);
+        askingprintreceipt = new AskingPrintReceiptState(this);
+        thankyoustate = new ThankYouState(this);
+        billState = new BillState(this);
         this.currentState = welcomeState;
     }
     
@@ -72,6 +83,11 @@ public class StatesImplementation extends Actor
         
     }
     
+    public State getBillState(){
+        return this.billState;
+        
+    }
+    
     public State getAdditionalServicesState(){
         return this.additionalServices;
         
@@ -81,9 +97,35 @@ public class StatesImplementation extends Actor
         return this.welcomeState;
         
     }
+    
+    
+    public State getAskingPrintReceiptState(){
+        return this.askingprintreceipt;
+        
+    }
+    
+    public State getThankYouState(){
+        return this.thankyoustate;
+        
+    }
+    
     public String getText(){
         return currentState.getMessage();
         
+    }
+    
+    public  void setWash(){
+        wash_service = true;
+    }
+    
+    
+    public  void setAir(){
+        air_service = true;
+    }
+    
+    
+    public  void setMaintainecne(){
+        maintenance_service = true;
     }
     
     public void act()
