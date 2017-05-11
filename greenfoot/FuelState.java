@@ -18,7 +18,7 @@ public class FuelState implements State
    
     
    public String getMessage(){
-       return "Please select one of the gas type";
+       return "Please select one of the Fuel Type";
    }
     
    public void setState(){
