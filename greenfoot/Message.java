@@ -74,7 +74,7 @@ public class Message extends Actor
             image.drawString("Proceed >>", 420, 350);            
         }
            
-        if(state instanceof AdditionalServices){
+        if(state instanceof AdditionalServicesState){
             image.setColor(new Color(235,201,148));
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            
@@ -90,7 +90,7 @@ public class Message extends Actor
         }
         
         if(state instanceof AskingPrintReceiptState){
-            image.setColor(greenfoot.Color.BLACK);
+            image.setColor(new Color(235,201,148));
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);
@@ -105,7 +105,7 @@ public class Message extends Actor
         }
         
                 if(state instanceof BillState){
-            image.setColor(greenfoot.Color.BLACK);
+            image.setColor(new Color(235,201,148));
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);
