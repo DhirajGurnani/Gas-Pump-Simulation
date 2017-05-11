@@ -18,7 +18,7 @@ public class ValidateCardState implements State
     
     public ValidateCardState(StatesImplementation statesImplementation){
       this.statesImplementation = statesImplementation;
-      screenMessage = "Enter zip code";
+      screenMessage = "Enter your zip code : ";
     }
     
     public void setState(){

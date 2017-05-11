@@ -16,7 +16,7 @@ public class WelcomeState implements State
    
     
    public String getMessage(){
-       return "Welcome!\n Start by swiping credit card";
+       return "Welcome!\n\nStart by swiping credit card";
    }
     
    public void setState(){

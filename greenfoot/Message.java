@@ -6,9 +6,8 @@ public class Message extends Actor
 
     private GreenfootImage image;
     private int msgX;   //Add coordinates to the variables 
-    private int msgY; 
+    private int msgY;
     
-
     public Message()
     {
         image = new GreenfootImage(520, 400);
@@ -31,16 +30,19 @@ public class Message extends Actor
     {
         //System.out.println(msg);
         image.clear();
-        image.setColor(greenfoot.Color.PINK);
+        
+       // image.setColor(greenfoot.Color.PINK);
+        image.setColor(new Color(34,34,51));
+        image.setFont(new Font(18));
         image.fill(); 
-        image.setColor(greenfoot.Color.BLACK);
-        image.drawString(msg, 180, 150);  
+        image.setColor(new Color(235,201,148));
+        image.drawString(msg, 130, 150);  
     }
     
     public void setStateButtonText(State state){
         System.out.println("Setting button text "+ state); 
         if(state instanceof ValidateCardState){
-            image.setColor(greenfoot.Color.BLACK);
+            image.setColor(new Color(235,201,148));
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);
@@ -54,11 +56,11 @@ public class Message extends Actor
             image.drawString("Retry >>", 460, 350);*/            
         }
         if(state instanceof FuelState){
-              image.setColor(greenfoot.Color.BLACK);
-              image.drawString("Cancel >>", 460, 350);
+              image.setColor(new Color(235,201,148));
+              image.drawString("Cancel >>", 430, 350);
          }
         if(state instanceof PumpingState){
-            image.setColor(greenfoot.Color.BLACK);
+            image.setColor(new Color(235,201,148));
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);
@@ -69,11 +71,11 @@ public class Message extends Actor
             /*image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);
             image.drawString("Start >>", 460, 250);*/
-            image.drawString("Proceed >>", 460, 350);            
+            image.drawString("Proceed >>", 420, 350);            
         }
            
-        if(state instanceof AdditionalServicesState){
-            image.setColor(greenfoot.Color.BLACK);
+        if(state instanceof AdditionalServices){
+            image.setColor(new Color(235,201,148));
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);*/
@@ -83,8 +85,8 @@ public class Message extends Actor
             // Right side four buttons
            /* image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);*/
-            image.drawString("Air Filling >>", 450, 250);
-            image.drawString("Next >>", 460, 350);            
+			image.drawString("Air Filling >>", 410, 250);
+            image.drawString("None >>", 440, 350);            
         }
         
         if(state instanceof AskingPrintReceiptState){
@@ -114,7 +116,8 @@ public class Message extends Actor
            /* image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);*/
             //image.drawString("Yes >>", 450, 250);
-            image.drawString("Next >>", 460, 350);  
+            image.drawString("Next >>", 460, 350);              
+
         }
     }
     
