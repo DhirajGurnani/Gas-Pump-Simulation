@@ -4,13 +4,13 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AdditionalServices  implements State 
+public class AdditionalServicesState  implements State 
 {
     // instance variables - replace the example below with your own
 
     StatesImplementation statesImplementation;
     
-    public AdditionalServices(StatesImplementation statesImplementation){
+    public AdditionalServicesState(StatesImplementation statesImplementation){
         this.statesImplementation = statesImplementation;
     }
    

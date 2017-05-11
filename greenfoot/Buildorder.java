@@ -12,7 +12,7 @@ public class Buildorder extends Actor
 	public static LeafDecorator getOrder() {
 		LeafDecorator order = new LeafDecorator("order");
 		// base price for 1/3 lb
-				fuel b = new fuel("Suresj ka fuel");
+				Fuel b = new Fuel("Suresj ka fuel");
 				b.setQuantity(5.00);
 				String[] bo = { "87" };
 				b.setOptions(bo);

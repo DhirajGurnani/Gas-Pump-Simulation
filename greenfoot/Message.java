@@ -72,7 +72,7 @@ public class Message extends Actor
             image.drawString("Proceed >>", 460, 350);            
         }
            
-        if(state instanceof AdditionalServices){
+        if(state instanceof AdditionalServicesState){
             image.setColor(greenfoot.Color.BLACK);
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            

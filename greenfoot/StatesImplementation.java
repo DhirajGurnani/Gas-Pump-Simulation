@@ -39,7 +39,7 @@ public class StatesImplementation extends Actor
         validateCard = new ValidateCardState(this);
         fuelState = new FuelState(this);
         pumping = new PumpingState(this);
-        additionalServices = new AdditionalServices(this);
+        additionalServices = new AdditionalServicesState(this);
         askingprintreceipt = new AskingPrintReceiptState(this);
         thankyoustate = new ThankYouState(this);
         billState = new BillState(this);
