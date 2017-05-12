@@ -24,11 +24,11 @@ public class Others extends LeafDecorator
     public void setOption(String option) {
         this.option = option;
 
-        if(this.option.equalsIgnoreCase("Wash")){
+        if(this.option.equalsIgnoreCase("Car Wash")){
             this.price += 15.00;
-        } else if(this.option.equalsIgnoreCase("Air")){
+        } else if(this.option.equalsIgnoreCase("Air Filling")){
             this.price += 0.00;
-        } else if(this.option.equalsIgnoreCase("Maintainence")){
+        } else if(this.option.equalsIgnoreCase("Car Maintainence")){
             this.price += 50.00;
         } 
     }

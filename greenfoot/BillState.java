@@ -4,6 +4,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
+import java.text.DecimalFormat;
 public class BillState  implements State 
 {
     // instance variables - replace the example below with your own
@@ -22,9 +23,13 @@ public class BillState  implements State
     
    public String getMessage(){
        //System.out.println("get message check");
-       totalprice = GasPumpOrder.getOrder(statesImplementation.getServices(), statesImplementation.getFueltypeSelected(), 
+ statesImplementation.totalprice = GasPumpOrder.getOrder(statesImplementation.getServices(), statesImplementation.getFueltypeSelected(), 
        statesImplementation.getGallonsFilled());
-       return "Total Amount: " + totalprice;
+       //statesImplementation.totalprice = round(statesImplementation.totalprice,2);
+       //temp = statesImplementation.totalprice;
+           DecimalFormat fmt = new DecimalFormat("0.00");
+        statesImplementation.totalprice =  Double.valueOf(fmt.format(statesImplementation.totalprice))  ;
+       return "Total Amount: " + statesImplementation.totalprice;
    }
     
    public void setState(){
@@ -68,10 +73,25 @@ public class BillState  implements State
                 System.out.println("Button 8");
 
                 if(statesImplementation.scenario() == 3){
+                //statesImplementation.setCurrentState(statesImplementation.getThankYouState());
+                   if(statesImplementation.getServices().isEmpty()){
+                       if(statesImplementation.printCheck){
+                           statesImplementation.showReceipt();
+                        }
                 statesImplementation.setCurrentState(statesImplementation.getThankYouState());
-            }else{
-                statesImplementation.setCurrentState(statesImplementation.getAskingPrintReceiptState());
+            } else {
+                statesImplementation.showReceipt();
+                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
             }
+            }else{
+                       System.out.println("Services: " + statesImplementation.getServices());
+                if(statesImplementation.getServices().isEmpty()){
+                statesImplementation.setCurrentState(statesImplementation.getAskingPrintReceiptState());
+            } else {
+                statesImplementation.showReceipt();
+                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
+            }
+        }
                //statesImplementation
                break;                
 

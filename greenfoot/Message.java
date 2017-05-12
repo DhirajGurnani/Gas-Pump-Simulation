@@ -82,7 +82,7 @@ public class Message extends Actor
            /* image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);*/
             image.drawString("Air Filling >>", 410, 250);
-            image.drawString("None >>", 440, 350);            
+            image.drawString("Next >>", 440, 350);            
         }
         else if(state instanceof AskingPrintReceiptState){
             // Left side four buttons

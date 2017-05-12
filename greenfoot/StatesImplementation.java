@@ -30,10 +30,11 @@ public class StatesImplementation extends Actor
     public boolean pumpingDone = false;
     static double gallonsFilled;
     static String fueltypeSelected;
-    //Double totalprice = 0.0;
+    boolean printCheck = false;
+    Double totalprice;
     //private Message msg;
-    static int currentScenario;
-    ArrayList<String> services;
+    static int currentScenario = 1;
+    ArrayList<String> services ;
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -182,9 +183,15 @@ public class StatesImplementation extends Actor
         str.append("\tMastercard \n\tAccount Number\t\t ***19 \n\n");
         str.append("\tGallons     Fuel Type     Total\n");
         str.append("\t%s          %s            $%s\n\n");
+        if(!services.isEmpty()){
+            str.append("Additional Services \n");
+            for(String x: services)
+            str.append(x + "\n");
+            str.append("\n");
+        }
         str.append("\t\tTHANK YOU!");
         
-        String str1 = String.format(str.toString(), 10+"", 89+"", 30+"");
+        String str1 = String.format(str.toString(), gallonsFilled+"", fueltypeSelected+"", totalprice+"");	
         world.addObject( new Receipt(str1), 992, 200) ;
     }
 }

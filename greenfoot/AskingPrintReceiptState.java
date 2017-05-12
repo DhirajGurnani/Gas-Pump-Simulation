@@ -56,22 +56,24 @@ public class AskingPrintReceiptState implements State
             case 7:
                 System.out.println("Button 7");
 
-                /*if(statesImplementation.scenario() ==3 ){
+                if(statesImplementation.scenario() ==3 ){
+                    statesImplementation.printCheck = true;
                     statesImplementation.setCurrentState(statesImplementation.getFuelState());
                 }else{
+                    statesImplementation.showReceipt();
                     statesImplementation.setCurrentState(statesImplementation.getThankYouState());
-                }*/
-                statesImplementation.showReceipt();
-                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
+                }
+                //statesImplementation.setCurrentState(statesImplementation.getThankYouState());
                 break;                
             case 8:
                 System.out.println("Button c8");
-                /*if(statesImplementation.scenario() ==3 ){
+                if(statesImplementation.scenario() ==3 ){
+                    
                     statesImplementation.setCurrentState(statesImplementation.getFuelState());
                 }else{
                     statesImplementation.setCurrentState(statesImplementation.getThankYouState());
-                }*/
-                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
+                }
+                //statesImplementation.setCurrentState(statesImplementation.getThankYouState());
                 break;                
                      
             default:
