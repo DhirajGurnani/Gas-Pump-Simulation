@@ -2,9 +2,7 @@ import greenfoot.*;
 
 public class GasType extends StatesImplementation
 {
-   
-    private Screen screen;
-    String fuel_selected;
+    private String fuelTypeSelected;
     private Message msg;
     
    public GasType() {
@@ -30,10 +28,10 @@ public class GasType extends StatesImplementation
         {
             MouseInfo mouse = Greenfoot.getMouseInfo();
             currentState.setState();            
-            fuel_selected = chooseGasType(mouse.getX(),mouse.getY());
-            fueltype_selected = fuel_selected;
+            this.fuelTypeSelected = chooseGasType(mouse.getX(),mouse.getY());
+            fueltypeSelected = this.fuelTypeSelected;
             msg = (Message) getWorld().getObjects(Message.class).get(0);
-            setMessage("Fuel type " + fuel_selected + " selected" + "\n\t" + "Proceed Pumping");
+            setMessage("Fuel type " + fuelTypeSelected + " selected" + "\n\t" + "Proceed Pumping");
         }
     }
     }

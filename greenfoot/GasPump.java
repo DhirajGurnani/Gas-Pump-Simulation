@@ -62,7 +62,7 @@ public class GasPump extends World
             }
       }
       
-      //addObject(new Receipt(), 992, 200);
+      //addObject(new Receipt(""), 992, 200);
       sts.setStateMessages();
       sts.setKeyPad(keyPad);
     }    

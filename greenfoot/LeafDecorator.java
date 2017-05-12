@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LeafDecorator implements PriceDecorator
+public abstract class LeafDecorator implements PriceDecorator
 {
     /**
      * Act - do whatever the LeafDecorator wants to do. This method is called whenever
@@ -39,19 +39,11 @@ public class LeafDecorator implements PriceDecorator
 		}
 	}
 
-	//abstract 
-	public void setOptions(String[] options){
-		
-	}
+	public abstract void setOption(String option);
 	
-	public void setQuantity(int a){
-		
-	}
+	public abstract void setQuantity(Double a);
 
-	//abstract 
-	public String getDescription(){
-		return this.Description;
-	}
+	public abstract String getDescription();
 
 	//@Override
 	public void printDescription() {

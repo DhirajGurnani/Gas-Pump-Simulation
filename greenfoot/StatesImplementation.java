@@ -1,4 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Write a description of class GasPumpMachine here.
@@ -21,22 +26,18 @@ public class StatesImplementation extends Actor
     State thankyoustate;
     State billState;
     static State currentState ;
-    World world;
     private KeyPad keyPad;
-    public boolean pumping_done = false;
-    static double gallon_filled;
-    static String fueltype_selected;
-    static boolean wash_service =  false;
-    static boolean air_service = false;
-    static boolean maintenance_service = false;
+    public boolean pumpingDone = false;
+    static double gallonsFilled;
+    static String fueltypeSelected;
     //Double totalprice = 0.0;
     //private Message msg;
     static int currentScenario;
+    ArrayList<String> services;
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
         image.scale( 600, 470 ) ;
-        world = getWorld();
         welcomeState = new WelcomeState(this);
         validateCard = new ValidateCardState(this);
         fuelState = new FuelState(this);
@@ -46,7 +47,7 @@ public class StatesImplementation extends Actor
         thankyoustate = new ThankYouState(this);
         billState = new BillState(this);
         this.currentState = welcomeState;
-        
+        services = new ArrayList<>();
     }
     
     public int scenario(){
@@ -113,18 +114,12 @@ public class StatesImplementation extends Actor
         
     }
     
-    public  void setWash(){
-        wash_service = true;
+    public ArrayList getServices(){
+        return services;
     }
     
-    
-    public  void setAir(){
-        air_service = true;
-    }
-    
-    
-    public  void setMaintainecne(){
-        maintenance_service = true;
+    public void setServices(ArrayList<String> ser){
+        services = ser;
     }
     
     public void act()
@@ -154,37 +149,42 @@ public class StatesImplementation extends Actor
         msg.setCancelMessage(this.currentState);
     }
     
-    public double getGallon_filled() {
-        		System.out.println(gallon_filled);
-		return gallon_filled;
+    public double getGallonsFilled() {
+                System.out.println(gallonsFilled);
+        return gallonsFilled;
 
-	}
+    }
 
-	public void setGallon_filled(double gallon_filled) {
-		this.gallon_filled = gallon_filled;
-	}
+    public void setGallonsFilled(double gallonsFilled) {
+        this.gallonsFilled = gallonsFilled;
+    }
 
-	public String getFueltype_selected() {
-		return fueltype_selected;
-	}
+    public String getFueltypeSelected() {
+        return fueltypeSelected;
+    }
 
-	public void setFueltype_selected(String fueltype_selected) {
-		this.fueltype_selected = fueltype_selected;
-	}
-
-	public boolean isWash_service() {
-	    System.out.println(wash_service);
-		return wash_service;
-	}
-
-	public boolean isAir_service() {
-	    System.out.println(air_service);
-		return air_service;
-	}
-
-	public boolean isMaintenance_service() {
-	    System.out.println(maintenance_service);
-		return maintenance_service;
-	}
-
+    public void setFueltypeSelected(String fueltypeSelected) {
+        this.fueltypeSelected = fueltypeSelected;
+    }
+    
+    public void showReceipt(){
+        World world = getWorld();
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        Random random = new Random();
+        StringBuilder str = new StringBuilder();
+        str.append("\t\tScorpion Gas Pump\n\t San Fernando Street, San Jose\n");
+        str.append("\n\t\tSale Receipt\n\n");
+        Date date = new Date();
+        str.append("\tDate\t\t\tTime\n");
+        str.append("\t" + dateFormat.format(date) + " \t\t" + timeFormat.format(date)+ "\n\n");
+        str.append("\tInvoice# " + random.nextInt(1000000) + "\n");
+        str.append("\tMastercard \n\tAccount Number\t\t ***19 \n\n");
+        str.append("\tGallons     Fuel Type     Total\n");
+        str.append("\t%s          %s            $%s\n\n");
+        str.append("\t\tTHANK YOU!");
+        
+        String str1 = String.format(str.toString(), 10+"", 89+"", 30+"");
+        world.addObject( new Receipt(str1), 992, 200) ;
+    }
 }

@@ -22,9 +22,8 @@ public class BillState  implements State
     
    public String getMessage(){
        //System.out.println("get message check");
-       totalprice = Buildorder.getOrder(statesImplementation.isWash_service(),statesImplementation.isAir_service(),
-       statesImplementation.isMaintenance_service(), statesImplementation.getFueltype_selected(), 
-       statesImplementation.getGallon_filled());
+       totalprice = BuildOrder.getOrder(statesImplementation.getServices(), statesImplementation.getFueltypeSelected(), 
+       statesImplementation.getGallonsFilled());
        return "Total Amount: " + totalprice;
    }
     
@@ -49,11 +48,11 @@ public class BillState  implements State
                 break;
             case 3:
                 System.out.println("Button 3");
-                statesImplementation.setWash();
+                statesImplementation.getServices().add("Wash");
                 break;
             case 4:
                 System.out.println("Button 4");
-                statesImplementation.setMaintainecne();
+                statesImplementation.getServices().add("Maintainence");
                 break;
             case 5:
                 System.out.println("Button 5");
@@ -63,7 +62,7 @@ public class BillState  implements State
                 break;                
             case 7:
                 System.out.println("Button 7");
-                statesImplementation.setAir();
+                statesImplementation.getServices().add("Air");
                 break;                
             case 8:
                 System.out.println("Button 8");

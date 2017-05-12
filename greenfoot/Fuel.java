@@ -7,57 +7,38 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Fuel extends LeafDecorator
-{
-    /**
-     * Act - do whatever the fuel wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+{    
+    private String option;
+    private Double quantity;
+
+    public Fuel(String d) {
+        super(d);
+        
+    }
     
-    	private String options;
-	private Double Quantity;
+    public void setQuantity(Double a){
+        this.quantity = a;
+    }
 
-	public Fuel(String d) {
-		super(d);
-		
-	}
-	
-	public void setQuantity(Double a){
-		this.Quantity = a;
-	}
+    public void setOption(String option) {
+        this.option = option;
+        System.out.println(this.option);
+        System.out.println(this.price);
+        if(this.option.equalsIgnoreCase("87")){
+            this.price += quantity  * 2.929;    
+            
+        } else if(this.option.equalsIgnoreCase("89")){
+            this.price += quantity  * 3.129 ;
+            
+        } else if(this.option.equalsIgnoreCase("93")){
+            this.price += quantity  * 3.329;    
+            
+        }
 
-	public void setOptions(String options) {
-		// 1 sauce free, extra +.75
-		this.options = options;
-/*		if (options.length > 1)
-			this.price += (options.length - 1) * 0.75;
-*/	
-		System.out.println(this.options);
-		System.out.println(this.price);
-		if(this.options.equalsIgnoreCase("87")){
-			this.price += Quantity  * 2.929;	
-			
-		} else if(this.options.equalsIgnoreCase("89")){
-			this.price += Quantity  * 3.129	;
-			
-		} else if(this.options.equalsIgnoreCase("93")){
-			this.price += Quantity  * 3.329;	
-			
-		}
+    }
 
-	}
-
-	public String getDescription() {
-		String desc = "";
-		/*for (int i = 0; i < options.length; i++) {
-			if (i > 0)
-				desc += " + " + options[i];
-			else
-				desc = options[i];
-		}*/
-		return desc;
-	}
+    public String getDescription() {
+        String desc = this.option;
+        return desc;
+    }
 }

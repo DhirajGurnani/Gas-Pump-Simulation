@@ -1,4 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Date;
+import java.util.Random;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Write a description of class Receipt here.
@@ -10,14 +14,14 @@ public class Receipt extends StatesImplementation
 {
     private GreenfootImage image;
     
-    public Receipt(){
+    public Receipt(String message){
         image = new GreenfootImage(220, 300);
         setImage(image);
         image.setColor(new Color(250,235,215));
         image.setFont(new Font(12));
         image.fill(); 
         image.setColor(Color.BLACK);
-        image.drawString("Print", 130, 150);
+        image.drawString(message, 20, 30);
     }
     
     /**

@@ -17,9 +17,7 @@ public class AskingPrintReceiptState implements State
     }
     
     public void setState(){
-
-          statesImplementation.setCurrentState(statesImplementation.getFuelState());
-
+        statesImplementation.setCurrentState(statesImplementation.getFuelState());
     }
     
     public State getCurrentState(){
@@ -58,21 +56,22 @@ public class AskingPrintReceiptState implements State
             case 7:
                 System.out.println("Button 7");
 
-                if(statesImplementation.scenario() ==3 ){
+                /*if(statesImplementation.scenario() ==3 ){
                     statesImplementation.setCurrentState(statesImplementation.getFuelState());
                 }else{
                     statesImplementation.setCurrentState(statesImplementation.getThankYouState());
-                }
+                }*/
+                statesImplementation.showReceipt();
+                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
                 break;                
             case 8:
                 System.out.println("Button c8");
-                if(statesImplementation.scenario() ==3 ){
+                /*if(statesImplementation.scenario() ==3 ){
                     statesImplementation.setCurrentState(statesImplementation.getFuelState());
                 }else{
                     statesImplementation.setCurrentState(statesImplementation.getThankYouState());
-                }
-
-                //statesImplementation.setCurrentState(statesImplementation.getThankYouState());
+                }*/
+                statesImplementation.setCurrentState(statesImplementation.getThankYouState());
                 break;                
                      
             default:
