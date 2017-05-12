@@ -22,7 +22,7 @@ public class BillState  implements State
     
    public String getMessage(){
        //System.out.println("get message check");
-       totalprice = BuildOrder.getOrder(statesImplementation.getServices(), statesImplementation.getFueltypeSelected(), 
+       totalprice = GasPumpOrder.getOrder(statesImplementation.getServices(), statesImplementation.getFueltypeSelected(), 
        statesImplementation.getGallonsFilled());
        return "Total Amount: " + totalprice;
    }
