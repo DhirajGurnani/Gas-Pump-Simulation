@@ -1,15 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
-
 /**
- * Write a description of class Buildorder here.
+ * Write a description of class BuildOrder here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BuildOrder
+public class BuildOrder  
 {
-
     public static Double getOrder(ArrayList<String> services, String fuelType, double fuelQuantity) {
          System.out.println("Fuel type "+ fuelType + "  quantity  "+ fuelQuantity);
         System.out.println("Services "+ services.size());
