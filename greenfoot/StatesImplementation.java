@@ -58,11 +58,14 @@ public class StatesImplementation extends Actor
     }
     
     public void setCurrentState(State updatedState){
-        System.out.println("Current state updated "+ updatedState);
         this.currentState = updatedState;
         setStateMessages();
+
         if(this.currentState instanceof WelcomeState){
             Greenfoot.setWorld(new GasPump());
+        }else if(this.currentState instanceof ValidateCardState && getWorld().getObjects(Scenario.class).size() != 0){
+            Scenario scenario = getWorld().getObjects(Scenario.class).get(0);
+            getWorld().removeObject(scenario);
         }
     }
     
@@ -129,13 +132,11 @@ public class StatesImplementation extends Actor
         // Add your action cod  e here.
     }
     
-    public void setKeyPad(KeyPad keyPad){
-        System.out.println("Setting " + keyPad);        
+    public void setKeyPad(KeyPad keyPad){        
         this.keyPad = keyPad;
     }
     
     public KeyPad getKeyPad(){
-        System.out.println("Return " + this.keyPad);
         return this.keyPad;
     }
     
@@ -152,7 +153,6 @@ public class StatesImplementation extends Actor
     }
     
     public double getGallonsFilled() {
-        System.out.println(gallonsFilled);
         return gallonsFilled;
 
     }
@@ -193,22 +193,6 @@ public class StatesImplementation extends Actor
         str.append("\tGallons     Fuel Type     Amount\n");
         str.append("\t%s          \t%s               $ %s\n\n");
         str.append("%s");
-        /*if(fueltypeSelected == "87"){
-            Double halfAmount = 2.929*gallonsFilled;
-            DecimalFormat fmt = new DecimalFormat("0.00");
-            halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
-            str.append(String.valueOf(halfAmount));
-        }else if(fueltypeSelected == "89"){
-            Double halfAmount = 3.129*gallonsFilled;
-            DecimalFormat fmt = new DecimalFormat("0.00");
-            halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
-            str.append(String.valueOf(halfAmount));
-        }else{
-            Double halfAmount = 3.329*gallonsFilled;
-            DecimalFormat fmt = new DecimalFormat("0.00");
-            halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
-            str.append(String.valueOf(halfAmount));
-        }*/
         
         StringBuilder servicesBill = new StringBuilder();
         Double servicePrice = 0.0;

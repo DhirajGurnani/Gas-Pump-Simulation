@@ -41,7 +41,6 @@ public class BillState  implements State
    }
         
    public void onButtonClick(int buttonId){
-       System.out.println("Button click welcomestate "+ buttonId);
        // TODO Instead of setting the state here, set when credit card is on card reader
        switch(buttonId){
             case 1:
@@ -84,7 +83,6 @@ public class BillState  implements State
                 statesImplementation.setCurrentState(statesImplementation.getThankYouState());
             }
             }else{
-                       System.out.println("Services: " + statesImplementation.getServices());
                 if(statesImplementation.getServices().isEmpty()){
                 statesImplementation.setCurrentState(statesImplementation.getAskingPrintReceiptState());
             } else {

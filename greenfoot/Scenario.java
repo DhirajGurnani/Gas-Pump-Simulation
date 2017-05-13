@@ -17,8 +17,6 @@ public class Scenario extends StatesImplementation
     {
         image = new GreenfootImage("scenario.png");
         setImage(image);
-      //  setText("Welcome");
-      //  System.out.println("const");
     }
     public void act() 
     {
@@ -30,21 +28,18 @@ public class Scenario extends StatesImplementation
         {
             if((mouse.getX()>829 && mouse.getX()<881) && (mouse.getY()>150 && mouse.getY()< 254)){
             currentScenario = 1;
-            System.out.println("scenario 1 selected");
             
             if (Greenfoot.mouseClicked(this)){
                getWorld().removeObject(this);
             }    
         }else if((mouse.getX()>882 && mouse.getX()<934) && (mouse.getY()>150 && mouse.getY()< 280)){
             currentScenario = 2;
-            System.out.println("scenario 2 selected");
             
             if (Greenfoot.mouseClicked(this)){
                getWorld().removeObject(this);
             }   
         }else if((mouse.getX()>934 && mouse.getX()<986) && (mouse.getY()>150 && mouse.getY()< 280)){
             currentScenario = 3;
-            System.out.println("scenario 3 selected");
             
             if (Greenfoot.mouseClicked(this)){
                getWorld().removeObject(this);
@@ -53,7 +48,6 @@ public class Scenario extends StatesImplementation
         }else{
             
             currentScenario = 1;
-            System.out.println("Default scenario is 1");
             if (Greenfoot.mouseClicked(this)){
                getWorld().removeObject(this);
             }

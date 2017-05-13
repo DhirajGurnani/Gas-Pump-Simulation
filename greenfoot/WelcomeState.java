@@ -16,7 +16,7 @@ public class WelcomeState implements State
    
     
    public String getMessage(){
-       return "Welcome!\n\nStart by swiping credit card";
+       return "             Welcome!\n\nStart by swiping credit card";
    }
     
    public void setState(){
@@ -28,8 +28,6 @@ public class WelcomeState implements State
    }
         
    public void onButtonClick(int buttonId){
-       System.out.println("Button click welcomestate "+ buttonId);
-       // TODO Instead of setting the state here, set when credit card is on card reader
        switch(buttonId){
             case 1:
                 System.out.println("Button 1");

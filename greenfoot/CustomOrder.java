@@ -20,7 +20,6 @@ public class CustomOrder
 
     public Double getPrice() {
         DecimalFormat fmt = new DecimalFormat("0.00");
-        System.out.println("Print desc price " + fmt.format(decorator.getPrice()));
         return decorator.getPrice();
     }
 

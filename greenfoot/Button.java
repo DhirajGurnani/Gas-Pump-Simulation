@@ -40,14 +40,6 @@ public class Button extends StatesImplementation
             System.out.println(currentState.getMessage());
             msg.setText(currentState.getMessage());
             msg.setStateButtonText(currentState);
-            /*if(currentState instanceof BillState){
-                totalprice = Buildorder.getOrder(isWash_service(),isAir_service(),
-       isMaintenance_service(), getFueltype_selected(), 
-       getGallon_filled());
-       System.out.println(totalprice);
-            }*/
-            // getWorld().addObject(msg, 300 , 40);
-            // currentState.setState();
         }
     }
 }

@@ -22,8 +22,6 @@ public class Fuel extends LeafDecorator
 
     public void setOption(String option) {
         this.option = option;
-        System.out.println(this.option);
-        System.out.println(this.price);
         if(this.option.equalsIgnoreCase("87")){
             this.price += quantity  * 2.929;    
             

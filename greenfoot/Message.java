@@ -12,19 +12,7 @@ public class Message extends Actor
     {
         image = new GreenfootImage(520, 400);
         setImage(image);
-      //  setText("Welcome");
-      //  System.out.println("const");
     }
-    
-    /*public Message(String message)
-    {
-        this.currentMsg = message;
-        image = new GreenfootImage(100, 50);
-        setImage(image);
-        setText(message) ;
-
-    }*/
-    
     
     public void setText(String msg)
     {
@@ -40,7 +28,6 @@ public class Message extends Actor
     }
     
     public void setStateButtonText(State state){
-        System.out.println("Setting button text "+ state); 
         image.setColor(new Color(235,201,148));
         if(state instanceof ValidateCardState){
             // Left side four buttons

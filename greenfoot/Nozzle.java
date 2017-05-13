@@ -25,8 +25,7 @@ public class Nozzle extends StatesImplementation
     }
     
     public void act(){
-        if (Greenfoot.mouseClicked(this)){
-            //System.out.println("inside act");
+        if (Greenfoot.mouseClicked(this) && currentState instanceof PumpingState){
             running =!running;
             countPress++;
             counter();
@@ -54,13 +53,9 @@ public class Nozzle extends StatesImplementation
                 }
                 setMessage("Pumping done! "+ gallonsFilled + " gallons" );
                 msg.setStateButtonText(currentState);
-                //System.out.println("under this expected");
-                    //image.drawString("Retry >>", 460, 350);
             }
         }   ;
-        timer.start();
-        //System.out.println("it says ");
-        
+        timer.start();        
     }
     
     private void setMessage(String str){

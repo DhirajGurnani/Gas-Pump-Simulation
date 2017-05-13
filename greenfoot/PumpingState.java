@@ -29,8 +29,6 @@ public class PumpingState  implements State
    }
         
    public void onButtonClick(int buttonId){
-       System.out.println("Button click PumpingState "+ buttonId);
-       // TODO Instead of setting the state here, set when credit card is on card reader
        switch(buttonId){
             case 1:
                 System.out.println("Button 1");
