@@ -183,15 +183,15 @@ public class StatesImplementation extends Actor
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         Random random = new Random();
         StringBuilder str = new StringBuilder();
-        str.append("        Scorpion Gas Pump\n San Fernando Street, San Jose\n");
-        str.append("\n              Sale Receipt\n\n");
+        str.append("            Scorpion Gas Pump\n San Fernando Street, San Jose\n");
+        str.append("\n                Sale Receipt\n\n");
         Date date = new Date();
         str.append(" Date                       Time\n");
-        str.append("\t" + dateFormat.format(date) + "           " + timeFormat.format(date)+ "\n\n");
+        str.append("\t " + dateFormat.format(date) + "            " + timeFormat.format(date)+ "\n\n");
         str.append("\tInvoice# " + random.nextInt(1000000) + "\n");
         str.append("\tMastercard \n\tAccount Number  **********19 \n\n");
         str.append("\tGallons     Fuel Type     Amount\n");
-        str.append("\t%s          \t%s               $ %s\n\n");
+        str.append("\t%s              \t%s                  $ %s\n\n");
         str.append("%s");
         
         StringBuilder servicesBill = new StringBuilder();
@@ -200,19 +200,19 @@ public class StatesImplementation extends Actor
             servicesBill.append("\tAdditional Services\n");
             for(String x: services){
                 if(x == "Car Wash"){
-                    servicesBill.append("\t" + x + "                    $ 15.00\n");
+                    servicesBill.append("\t" + x + "                        $ 15.00\n");
                     servicePrice = 15.00;
                 } else if(x == "Car Maintainence"){
-                    servicesBill.append("\t" + x + "  $ 50.00\n");
+                    servicesBill.append("\t" + x + "           $ 50.00\n");
                     servicePrice = 50.00;                    
                 } else {
-                    servicesBill.append("\t" + x + "                     $ 00.00\n");
+                    servicesBill.append("\t" + x + "                          $ 00.00\n");
                     servicePrice = 00.00;                    
                 }
             }
             servicesBill.append("\n\n");
         }
-        str.append("\tTotal                           $ %s\n");
+        str.append("\tTotal                                  $ %s\n\n");
         str.append("            THANK YOU!");
         
         DecimalFormat fmt = new DecimalFormat("0.00");
