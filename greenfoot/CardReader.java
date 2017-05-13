@@ -28,6 +28,7 @@ public class CardReader extends StatesImplementation
         Actor creditCard = getOneIntersectingObject(CreditCard.class);
         if(creditCard != null && !hasCreditCard)
         {
+            Greenfoot.playSound("eating.wav");
             currentState.setState();
             hasCreditCard = true;
         }
