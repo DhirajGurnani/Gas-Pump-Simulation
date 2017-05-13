@@ -30,6 +30,11 @@ public class Button extends StatesImplementation
     {
         if(Greenfoot.mousePressed(this))
         {
+            
+            if(currentState instanceof WelcomeState){
+                Greenfoot.playSound("beep.wav");
+            }
+            
             currentState.onButtonClick(id);
             msg = (Message) getWorld().getObjects(Message.class).get(0);
             System.out.println(currentState.getMessage());

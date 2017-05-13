@@ -41,17 +41,21 @@ public class Key extends KeyPad
     {
        if(Greenfoot.mousePressed(this))
        {
-           if(buttonNumber >= 0 && buttonNumber <= 9)
-           {
-               keyPad.updateText(buttonNumber+"");               
-           }else if(buttonNumber == 10)
-           {
-               keyPad.updateText("-1");               
-           }else 
-           {
-               keyPad.updateText("");               
-           }
-
+           if(currentState instanceof ValidateCardState){
+           
+               if(buttonNumber >= 0 && buttonNumber <= 9)
+               {
+                   keyPad.updateText(buttonNumber+"");               
+               }else if(buttonNumber == 10)
+               {
+                   keyPad.updateText("-1");               
+               }else 
+               {
+                   keyPad.updateText("");               
+               }
+            }else{
+                Greenfoot.playSound("beep.wav");
+            }
        }
     }   
     
