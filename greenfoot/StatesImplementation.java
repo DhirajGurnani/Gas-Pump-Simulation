@@ -18,24 +18,24 @@ public class StatesImplementation extends Actor
      * Act - do whatever the GasPumpMachine wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    State welcomeState;
-    State validateCard;
-    State fuelState;
-    State pumping;
-    State additionalServices;
-    State askingprintreceipt;
-    State thankyoustate;
-    State billState;
-    static State currentState ;
-    private KeyPad keyPad;
-    public boolean pumpingDone = false;
-    static double gallonsFilled;
+    private State welcomeState;
+    private State validateCard;
+    private State fuelState;
+    private State pumping;
+    private State additionalServices;
+    private State askingprintreceipt;
+    private State thankyoustate;
+    private State billState;
+    private KeyPad keyPad;   
+    private Double totalPrice;
+    private HashSet<String> services ;
+    
     static String fueltypeSelected;
     boolean printCheck = false;
-    Double totalprice;
-    //private Message msg;
+    boolean pumpingDone = false;
+    static double gallonsFilled;
     static int currentScenario = 1;
-    HashSet<String> services ;
+    static State currentState ;
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -152,7 +152,7 @@ public class StatesImplementation extends Actor
     }
     
     public double getGallonsFilled() {
-                System.out.println(gallonsFilled);
+        System.out.println(gallonsFilled);
         return gallonsFilled;
 
     }
@@ -169,61 +169,73 @@ public class StatesImplementation extends Actor
         this.fueltypeSelected = fueltypeSelected;
     }
     
+    public Double getTotalPrice(){
+        return totalPrice;
+    }
+    
+    public void setTotalPrice(Double price){
+        totalPrice = price;
+    }
+    
     public void showReceipt(){
         World world = getWorld();
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         Random random = new Random();
         StringBuilder str = new StringBuilder();
-        str.append("\t\tScorpion Gas Pump\n\t San Fernando Street, San Jose\n");
-        str.append("\n\t\tSale Receipt\n\n");
+        str.append("        Scorpion Gas Pump\n San Fernando Street, San Jose\n");
+        str.append("\n              Sale Receipt\n\n");
         Date date = new Date();
-        str.append("\tDate\t\t\tTime\n");
-        str.append("\t" + dateFormat.format(date) + " \t\t" + timeFormat.format(date)+ "\n\n");
+        str.append(" Date                       Time\n");
+        str.append("\t" + dateFormat.format(date) + "           " + timeFormat.format(date)+ "\n\n");
         str.append("\tInvoice# " + random.nextInt(1000000) + "\n");
-        str.append("\tMastercard \n\tAccount Number\t\t ***19 \n\n");
+        str.append("\tMastercard \n\tAccount Number  **********19 \n\n");
         str.append("\tGallons     Fuel Type     Amount\n");
-        str.append("\t%s          %s               $");
-        if(fueltypeSelected == "87"){
+        str.append("\t%s          \t%s               $ %s\n\n");
+        str.append("%s");
+        /*if(fueltypeSelected == "87"){
             Double halfAmount = 2.929*gallonsFilled;
-                DecimalFormat fmt = new DecimalFormat("0.00");
-        halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
-       
+            DecimalFormat fmt = new DecimalFormat("0.00");
+            halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
             str.append(String.valueOf(halfAmount));
         }else if(fueltypeSelected == "89"){
             Double halfAmount = 3.129*gallonsFilled;
-            
-                DecimalFormat fmt = new DecimalFormat("0.00");
-        halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
+            DecimalFormat fmt = new DecimalFormat("0.00");
+            halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
             str.append(String.valueOf(halfAmount));
         }else{
             Double halfAmount = 3.329*gallonsFilled;
-            
-                DecimalFormat fmt = new DecimalFormat("0.00");
-        halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
+            DecimalFormat fmt = new DecimalFormat("0.00");
+            halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
             str.append(String.valueOf(halfAmount));
-        }
-        str.append("\n\n");
+        }*/
+        
+        StringBuilder servicesBill = new StringBuilder();
+        Double servicePrice = 0.0;
         if(!services.isEmpty()){
-            str.append("Additional Services \n");
+            servicesBill.append("\tAdditional Services\n");
             for(String x: services){
                 if(x == "Car Wash"){
-            str.append(x + "              $15.00\n");
-        } else if(x == "Car Maintainence"){
-        str.append(x + "                  $50.00\n");
-
-        } else {
-        str.append(x + "                  $00.00\n");
-
+                    servicesBill.append("\t" + x + "                    $ 15.00\n");
+                    servicePrice = 15.00;
+                } else if(x == "Car Maintainence"){
+                    servicesBill.append("\t" + x + "  $ 50.00\n");
+                    servicePrice = 50.00;                    
+                } else {
+                    servicesBill.append("\t" + x + "                     $ 00.00\n");
+                    servicePrice = 00.00;                    
+                }
+            }
+            servicesBill.append("\n\n");
         }
-
-        }
-            str.append("\n");
-        }
-        str.append("Total                       $%s\n");
-        str.append("\t\tTHANK YOU!");
+        str.append("\tTotal                           $ %s\n");
+        str.append("            THANK YOU!");
         
-        String str1 = String.format(str.toString(), gallonsFilled+"", fueltypeSelected+"", totalprice+"");  
-        world.addObject( new Receipt(str1), 992, 200) ;
+        DecimalFormat fmt = new DecimalFormat("0.00");
+        totalPrice = Double.valueOf(fmt.format(totalPrice));
+        Double fuelPart = Double.valueOf(fmt.format(totalPrice-servicePrice));
+        
+        String finalReceipt = String.format(str.toString(), gallonsFilled+"", fueltypeSelected+"", fuelPart+"", servicesBill.toString(), totalPrice+"");  
+        world.addObject( new Receipt(finalReceipt), 992, 250) ;
     }
 }

@@ -15,7 +15,7 @@ public class Receipt extends StatesImplementation
     private GreenfootImage image;
     
     public Receipt(String message){
-        image = new GreenfootImage(220, 350);
+        image = new GreenfootImage(220, 400);
         setImage(image);
         image.setColor(new Color(250,235,215));
         image.setFont(new Font(12));

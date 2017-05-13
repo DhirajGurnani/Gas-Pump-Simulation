@@ -23,13 +23,13 @@ public class BillState  implements State
     
    public String getMessage(){
        //System.out.println("get message check");
- statesImplementation.totalprice = GasPumpOrder.getOrder(statesImplementation.getServices(), statesImplementation.getFueltypeSelected(), 
+       Double totalPrice = GasPumpOrder.getOrder(statesImplementation.getServices(), statesImplementation.getFueltypeSelected(), 
        statesImplementation.getGallonsFilled());
        //statesImplementation.totalprice = round(statesImplementation.totalprice,2);
        //temp = statesImplementation.totalprice;
-           DecimalFormat fmt = new DecimalFormat("0.00");
-        statesImplementation.totalprice =  Double.valueOf(fmt.format(statesImplementation.totalprice))  ;
-       return "Total Amount: " + statesImplementation.totalprice;
+       DecimalFormat fmt = new DecimalFormat("0.00");
+       statesImplementation.setTotalPrice(Double.valueOf(fmt.format(totalPrice)));
+       return "Total Amount: " + statesImplementation.getTotalPrice();
    }
     
    public void setState(){
