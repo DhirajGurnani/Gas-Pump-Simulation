@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Random;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.text.DecimalFormat;
 
 /**
  * Write a description of class GasPumpMachine here.
@@ -181,17 +182,48 @@ public class StatesImplementation extends Actor
         str.append("\t" + dateFormat.format(date) + " \t\t" + timeFormat.format(date)+ "\n\n");
         str.append("\tInvoice# " + random.nextInt(1000000) + "\n");
         str.append("\tMastercard \n\tAccount Number\t\t ***19 \n\n");
-        str.append("\tGallons     Fuel Type     Total\n");
-        str.append("\t%s          %s            $%s\n\n");
+        str.append("\tGallons     Fuel Type     Amount\n");
+        str.append("\t%s          %s               $");
+        if(fueltypeSelected == "87"){
+            Double halfAmount = 2.929*gallonsFilled;
+                DecimalFormat fmt = new DecimalFormat("0.00");
+        halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
+       
+            str.append(String.valueOf(halfAmount));
+        }else if(fueltypeSelected == "89"){
+            Double halfAmount = 3.129*gallonsFilled;
+            
+                DecimalFormat fmt = new DecimalFormat("0.00");
+        halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
+            str.append(String.valueOf(halfAmount));
+        }else{
+            Double halfAmount = 3.329*gallonsFilled;
+            
+                DecimalFormat fmt = new DecimalFormat("0.00");
+        halfAmount =  Double.valueOf(fmt.format(halfAmount))  ;
+            str.append(String.valueOf(halfAmount));
+        }
+        str.append("\n\n");
         if(!services.isEmpty()){
             str.append("Additional Services \n");
-            for(String x: services)
-            str.append(x + "\n");
+            for(String x: services){
+                if(x == "Car Wash"){
+            str.append(x + "              $15.00\n");
+        } else if(x == "Car Maintainence"){
+        str.append(x + "                  $50.00\n");
+
+        } else {
+        str.append(x + "                  $00.00\n");
+
+        }
+
+        }
             str.append("\n");
         }
+        str.append("Total                       $%s\n");
         str.append("\t\tTHANK YOU!");
         
-        String str1 = String.format(str.toString(), gallonsFilled+"", fueltypeSelected+"", totalprice+"");	
+        String str1 = String.format(str.toString(), gallonsFilled+"", fueltypeSelected+"", totalprice+"");  
         world.addObject( new Receipt(str1), 992, 200) ;
     }
 }

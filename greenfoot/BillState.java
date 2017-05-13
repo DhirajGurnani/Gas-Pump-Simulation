@@ -53,11 +53,11 @@ public class BillState  implements State
                 break;
             case 3:
                 System.out.println("Button 3");
-                statesImplementation.getServices().add("Wash");
+                //statesImplementation.getServices().add("Wash");
                 break;
             case 4:
                 System.out.println("Button 4");
-                statesImplementation.getServices().add("Maintainence");
+                //statesImplementation.getServices().add("Maintainence");
                 break;
             case 5:
                 System.out.println("Button 5");
@@ -67,7 +67,7 @@ public class BillState  implements State
                 break;                
             case 7:
                 System.out.println("Button 7");
-                statesImplementation.getServices().add("Air");
+                //statesImplementation.getServices().add("Air");
                 break;                
             case 8:
                 System.out.println("Button 8");

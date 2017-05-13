@@ -33,7 +33,7 @@ public class ThankYouState implements State
     }
     
     public void onButtonClick(int buttonId){
-        System.out.println("Button clicked Validate "+ buttonId);
+        //System.out.println("Button clicked Validate "+ buttonId);
         switch(buttonId){
             case 1:
                 System.out.println("Button 1");
