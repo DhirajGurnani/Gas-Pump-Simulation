@@ -75,13 +75,13 @@ public class Message extends Actor
             // Left side four buttons
            /* image.drawString("<< Start", 10, 50);            
             image.drawString("<< End", 10, 150);*/
-            image.drawString("<< Car Wash", 10, 250);
-            image.drawString("<< Car Maintenance", 10, 350);
+            image.drawString("<< Car Wash ($15.00)", 10, 250);
+            image.drawString("<< Car Maintenance ($50.00)", 10, 350);
             
             // Right side four buttons
            /* image.drawString("Start >>", 460, 50);            
             image.drawString("End >>", 460, 150);*/
-            image.drawString("Air Filling >>", 410, 250);
+            image.drawString("Air Filling (Free) >>", 350, 250);
             image.drawString("Next >>", 440, 350);            
         }
         else if(state instanceof AskingPrintReceiptState){
