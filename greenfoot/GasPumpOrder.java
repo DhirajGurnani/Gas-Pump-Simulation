@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 /**
  * Write a description of class GasPumpOrder here.
  * 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class GasPumpOrder  
 {
-    public static Double getOrder(ArrayList<String> services, String fuelType, double fuelQuantity) {
+    public static Double getOrder(HashSet<String> services, String fuelType, double fuelQuantity) {
          System.out.println("Fuel type "+ fuelType + "  quantity  "+ fuelQuantity);
         System.out.println("Services "+ services.size());
         CustomOrder order = new CustomOrder("order");

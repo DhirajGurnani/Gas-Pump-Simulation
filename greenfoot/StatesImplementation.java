@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
 import java.util.Random;
 import java.text.DateFormat;
@@ -35,7 +35,7 @@ public class StatesImplementation extends Actor
     Double totalprice;
     //private Message msg;
     static int currentScenario = 1;
-    ArrayList<String> services ;
+    HashSet<String> services ;
     
     public StatesImplementation(){
         GreenfootImage image = getImage() ;
@@ -49,7 +49,7 @@ public class StatesImplementation extends Actor
         thankyoustate = new ThankYouState(this);
         billState = new BillState(this);
         this.currentState = welcomeState;
-        services = new ArrayList<>();
+        services = new HashSet<>();
     }
     
     public int scenario(){
@@ -116,11 +116,11 @@ public class StatesImplementation extends Actor
         
     }
     
-    public ArrayList getServices(){
+    public HashSet getServices(){
         return services;
     }
     
-    public void setServices(ArrayList<String> ser){
+    public void setServices(HashSet<String> ser){
         services = ser;
     }
     
